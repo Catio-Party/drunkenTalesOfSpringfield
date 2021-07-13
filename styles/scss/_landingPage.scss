@@ -13,13 +13,12 @@
     text-align: center;
 }
 
-// .loading {
-//     border: 3px dashed tomato;
-// }
-
-// .characterGallery {
-//     border: 3px solid yellow;
-// }
+.characterGallery {
+    border: 15px solid lightpink;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 80px;
+}
 
 .characterFlex {
     display: flex;
@@ -29,11 +28,14 @@
     padding: 50px 0;
         li {
             list-style-type: none;
+            // need to get these responsive
         }
 }
 
 .characterButton {
     border: none;
+    background-color: white;
+    padding: 0;
 }
 
 .characterButton:hover {
