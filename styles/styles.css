@@ -244,6 +244,40 @@ template {
   overflow: hidden;
 }
 
+.titles {
+  text-align: center;
+}
+
+.loadingHeadings h2 {
+  text-align: center;
+}
+
+.characterFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin: 0;
+  padding: 50px 0;
+}
+.characterFlex li {
+  list-style-type: none;
+}
+
+.characterButton {
+  border: none;
+}
+
+.characterButton:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .mainBoard {
   width: 100vw;
   height: 100vh;
@@ -258,8 +292,8 @@ template {
 
 .wrapper {
   width: 90%;
+  margin: 0 auto;
   background-color: purple;
-  height: 100vh;
 }
 
 .main h1 {

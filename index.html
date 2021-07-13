@@ -14,7 +14,7 @@
     <header>
         <!-- for semantics....could put the div loadingHeadings in here? Or just the game title? What do you think? -->
         <!-- I would just put the h1 here and possibly an h2 (entirely optional), this section would always remain in the dom and we wouldn't have to change it at all -->
-        <div class="wrapper">
+        <div class="titles wrapper">
             <h1>Game Title in the works</h1>
             <h2>Subtitle: IE. The Drunken Tales of Springfield</h2>
         </div>
@@ -31,20 +31,27 @@
                 </div>
                 <!-- end headings area -->
                 <div class="characterGallery">
-                    <ul>
-                        <!-- commented this out after seeing how Susan added images to the page in the code along! -->
-                        <!-- as mentioned we will hardcode the images in with 4 characters to be determined soon -->
+                    <!-- need to get images without backgrounds! Also, I think that if the imgs are to be clickable, they should be a button -->
+                    <ul class="characterFlex">
                         <li>
-                            <img src="" alt="">
+                            <button class="characterButton">
+                                <img src="./assets/homer.jpg" id="homer" alt="">
+                            </button>
                         </li>
                         <li>
-                            <img src="" alt="">
+                            <button class="characterButton">
+                                <img src="./assets/fry.jpg" id="fry" alt="">
+                            </button>
                         </li>
                         <li>
-                            <img src="" alt="">
+                            <button class="characterButton">
+                                <img src="./assets/darth.jpg" id="darth" alt="">
+                            </button>
                         </li>
                         <li>
-                            <img src="" alt="">
+                            <button class="characterButton">
+                                <img src="./assets/han.jpg" id="han" alt="">
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -58,9 +65,9 @@
             <div class="wrapper">
                 <!-- two main divs -->
                 <div class=“topContainer”>
-                    <div>Character name n possibly profile</div>
-                    <div>Sobriety bar</div>
-                    <div>High Score and current score</div>
+                    <p>Character name n possibly profile</p>
+                    <p>Sobriety bar</p>
+                    <p>High Score and current score</p>
                 </div>
                 <div class=“botContainer”>
                     <div class=“characterCredentials”>

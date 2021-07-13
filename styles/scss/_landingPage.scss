@@ -1,0 +1,41 @@
+// note: anytime you see a random border commented out, it's just me using a border for visual assistance regarding the element size etc. - Beth
+
+// header {
+//     border: 3px solid green;
+// }
+
+
+.titles {
+    text-align: center;
+}
+
+.loadingHeadings h2 {
+    text-align: center;
+}
+
+// .loading {
+//     border: 3px dashed tomato;
+// }
+
+// .characterGallery {
+//     border: 3px solid yellow;
+// }
+
+.characterFlex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin: 0;
+    padding: 50px 0;
+        li {
+            list-style-type: none;
+        }
+}
+
+.characterButton {
+    border: none;
+}
+
+.characterButton:hover {
+    transform: scale(1.1);
+}
