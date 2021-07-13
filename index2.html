@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpsons etc</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+    ​
+    <header>
+        <!-- for semantics....could put the div loadingHeadings in here? Or just the game title? What do you think? -->
+        <!-- I would just put the h1 here and possibly an h2 (entirely optional), this section would always remain in the dom and we wouldn't have to change it at all -->
+        <div class="wrapper">
+            <h1>Game Title in the works</h1>
+            <h2>Subtitle: IE. The Drunken Tales of Springfield</h2>
+        </div>
+
+    </header>
+    <main>
+        <!-- landing page -->
+        <section class="loading">
+            <div class="wrapper">
+                <!-- headings area -->
+                <div class="loadingHeadings">
+                    <h2>High Score</h2>
+                    <h2>Choose Your Player</h2>
+                </div>
+                <!-- end headings area -->
+                <div class="characterGallery">
+                    <ul>
+                        <!-- commented this out after seeing how Susan added images to the page in the code along! -->
+                        <!-- as mentioned we will hardcode the images in with 4 characters to be determined soon -->
+                        <li>
+                            <img src="" alt="">
+                        </li>
+                        <li>
+                            <img src="" alt="">
+                        </li>
+                        <li>
+                            <img src="" alt="">
+                        </li>
+                        <li>
+                            <img src="" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- end landing page -->
+
+
+        <!-- main playing section -->
+        <section id="main" class="main">
+            <div class="wrapper">
+                <!-- two main divs -->
+                <div class=“topContainer”>
+                    <div>Character name n possibly profile</div>
+                    <div>Sobriety bar</div>
+                    <div>High Score and current score</div>
+                </div>
+                <div class=“botContainer”>
+                    <div class=“characterCredentials”>
+                        <div>character pic</div>
+                        <div>quotes</div>
+                    </div>
+                    <div class=“gameGrid”>
+                        <!-- game grid happens here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end main playing section -->
+        ​
+        <!-- Game Over page section-->
+        <section class="gameOver">
+            <div class="wrapper">
+                <h2>You're Sober!</h2>
+                <h2>Time to go Home</h2>
+                <h3>High Score</h3>
+                <div class="buttons">
+                    <button class="retry">Retry</button>
+                    <button class="changeCharacter">Try with a new character!</button>
+
+                </div>
+            </div>
+        </section>
+        <!-- end Game over page section -->
+
+    </main>
+    <footer>
+        <p>Created at <a href="https://junocollege.com/">Juno College</a></p>
+    </footer>
+    ​
+    ​
+</body>
+
+</html>
