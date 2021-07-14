@@ -14,7 +14,7 @@ const characterButton = document.querySelectorAll('.characterButton');
 const loadingPage = document.querySelector('.loading');
 const mainBoard = document.querySelector('.mainBoard');
 // const characterDiv = document.querySelector('.playersCharacter');
-const characterPic = document.querySelector('.d');
+const characterPic = document.querySelector('.characterPic');
 
 characterButton.forEach(button => button.addEventListener('click', (e) => {
     //had to add class of homer to the img element for this to work. having it on the button wasn't working
@@ -26,7 +26,7 @@ characterButton.forEach(button => button.addEventListener('click', (e) => {
         ? characterPic.innerHTML = `<img src="./assets/darth.jpg" alt="">`
         : e.target.classList.contains('han')
         ? characterPic.innerHTML = `<img src="./assets/han.jpg" alt="">`
-        : console.log('not valid - what do I actually put here');
+        : console.log('not valid - what do we actually put here??');
     loadingPage.style.display = "none";
     mainBoard.style.display = "block";
 }))

@@ -1,36 +1,43 @@
-// note: anytime you see a random border commented out, it's just me using a border for visual assistance regarding the element size etc. - Beth
+//Landing Section
 
-// thinking we should put this img styling on the main styles page - Beth
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.titles {
+.loading {
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
     text-align: center;
 }
+
+
+// .titles {
+//     text-align: center;
+// }
 
 .loadingHeadings h2 {
-    text-align: center;
+    // text-align: center;
+    padding: 1rem 0;
 }
 
 .characterGallery {
     border: 15px solid lightpink;
     border-radius: 10px;
     background-color: white;
-    margin: 0 80px;
+    // margin: 0 80px;
+    width: 100%;
 }
 
 .characterFlex {
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
-    margin: 0;
-    padding: 50px 0;
+    padding: 2.5rem 1rem;
         li {
             list-style-type: none;
-            margin: 0 auto;
+            padding: 0 2%;
+            // need to get these responsive
+        }
+        img {
+            width: 100%
         }
 }
 
