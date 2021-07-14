@@ -1,0 +1,144 @@
+//Main GameBoard
+
+.mainBoard {
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mainBoard .wrapper {
+    width: 90%;
+    background-color: purple;
+    height: 100%;
+ }
+
+.mainBoard h1 {
+    height: 6vh;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+//Top
+
+.topContainer {
+    display: flex;
+    flex-direction: row;
+    height: 11.5vh;
+    background-color: green;
+    text-align: center
+}
+
+.characterProfile {
+    width: 25%;
+    background-color: pink;
+}
+
+.soberContainer {
+    width: 60%;
+    background-color: gray;
+} 
+
+.scoreContainer {
+    width: 15%;
+    background-color: thistle
+}
+
+//Bottom 
+
+.botContainer {
+    height: 70.5vh;
+    width: 100%;
+    background-color: turquoise;
+    display: flex;
+    flex-direction: row;
+}
+
+.characterCredentials {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.characterPic {
+    height: 65%;
+    background-color: green
+}
+
+.characterQuote {
+    height: 35%;
+    background-color: yellow;
+}
+
+//GameBoard and Stylings Inside
+
+.gameGrid {
+    width: calc(75vw * .9);
+    // border: 0.1rem solid black;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.place {
+    width: calc(((74.99vw * .9)) / 10);
+    height: calc(75vh / 10);
+    border: 1px solid red;
+}
+
+.beer {
+    background-color: pink;
+    position: relative;
+}
+
+.beer::before {
+    content: "🍺";
+    font-size: 1.5rem;
+    display: block;
+    width: 100%;
+    // height: 100%;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 25%;
+}
+
+.wine {
+    background-color: blue;
+    position: relative;
+}
+
+.wine::before {
+    content: "🍷";
+    font-size: 1.5rem;
+    display: block;
+    width: 100%;
+    // height: 100%;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 25%;
+}
+
+.beerAndWine {
+    background-color: violet;
+    position: relative;
+}
+
+.beerAndWine::before {
+    content: "🍺🍷"
+}
+
+.soberBar {
+    width: 100%;
+    background-color: grey;
+    border: 0.15rem solid black;
+}
+  
+.soberLevel {
+    width: 50%;
+    height: 1.5rem;
+    background-color: red;
+}

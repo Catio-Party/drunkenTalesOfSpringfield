@@ -10,15 +10,10 @@
 </head>
 
 <body>
-    ​
     <header>
-        <!-- for semantics....could put the div loadingHeadings in here? Or just the game title? What do you think? -->
-        <!-- I would just put the h1 here and possibly an h2 (entirely optional), this section would always remain in the dom and we wouldn't have to change it at all -->
         <div class="wrapper">
             <h1>Game Title in the works</h1>
-            <h2>Subtitle: IE. The Drunken Tales of Springfield</h2>
         </div>
-
     </header>
     <main>
         <!-- landing page -->
@@ -26,25 +21,32 @@
             <div class="wrapper">
                 <!-- headings area -->
                 <div class="loadingHeadings">
-                    <h2>High Score</h2>
+                    <h2>High Score: 0</h2>
                     <h2>Choose Your Player</h2>
                 </div>
                 <!-- end headings area -->
                 <div class="characterGallery">
-                    <ul>
-                        <!-- commented this out after seeing how Susan added images to the page in the code along! -->
-                        <!-- as mentioned we will hardcode the images in with 4 characters to be determined soon -->
+                    <!-- need to get images without backgrounds! Also, I think that if the imgs are to be clickable, they should be a button -->
+                    <ul class="characterFlex">
                         <li>
-                            <img src="" alt="">
+                            <button id="homer" class="characterButton">
+                                <img src="./assets/homer.jpg" alt="">
+                            </button>
                         </li>
                         <li>
-                            <img src="" alt="">
+                            <button id="fry" class="characterButton">
+                                <img src="./assets/fry.jpg" alt="">
+                            </button>
                         </li>
                         <li>
-                            <img src="" alt="">
+                            <button id="darth" class="characterButton">
+                                <img src="./assets/darth.jpg" alt="">
+                            </button>
                         </li>
                         <li>
-                            <img src="" alt="">
+                            <button id="han" class="characterButton">
+                                <img src="./assets/han.jpg" alt="">
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -54,32 +56,34 @@
 
 
         <!-- main playing section -->
-        <section id="main" class="main">
+        <section id="mainBoard" class="mainBoard">
             <div class="wrapper">
-                <!-- two main divs -->
-                <div class=“topContainer”>
-                    <div>Character name n possibly profile</div>
-                    <div>Sobriety bar</div>
-                    <div>High Score and current score</div>
+                <h1>The Drunken Tales of Springfield</h1>
+                <div class="topContainer">
+                    <div class="characterProfile">Character name n possibly profile</div>
+                    <div class="soberContainer">
+                        <h3>Sobriety Bar</h3>
+                        <div class="soberBar">
+                            <div class="soberLevel"></div>
+                        </div>
+                    </div>
+                    <div class="scoreContainer">High Score and current score</div>
                 </div>
-                <div class=“botContainer”>
-                    <div class=“characterCredentials”>
-                        <div>character pic</div>
-                        <div>quotes</div>
+                <div class="botContainer">
+                    <div class="characterCredentials">
+                        <div class="characterPic">character pic</div>
+                        <div class="characterQuote">quotes</div>
                     </div>
-                    <div class=“gameGrid”>
-                        <!-- game grid happens here -->
-                    </div>
+                    <div class="gameGrid"></div>
                 </div>
             </div>
         </section>
-        <!-- end main playing section -->
-        ​
-        <!-- Game Over page section-->
+
         <section class="gameOver">
             <div class="wrapper">
                 <h2>You're Sober!</h2>
                 <h2>Time to go Home</h2>
+                <h3>Current Score</h3>
                 <h3>High Score</h3>
                 <div class="buttons">
                     <button class="retry">Retry</button>
@@ -92,10 +96,11 @@
 
     </main>
     <footer>
-        <p>Created at <a href="https://junocollege.com/">Juno College</a></p>
+        <div class="wrapper">
+            <p>Created at <a href="https://junocollege.com/">Juno College</a></p>
+        </div>
     </footer>
-    ​
-    ​
+
 </body>
 
 </html>

@@ -1,0 +1,51 @@
+//Header Footer and General Styles
+
+* { 
+    margin: 0; 
+    padding: 0;
+}
+
+html {
+    font-size: 20px;
+    background-color: tomato;
+}
+
+header, footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+header {
+    height: 7.5vh;
+}
+
+footer {
+    height: 4.5vh;
+    background-color: pink;
+}
+
+footer .wrapper {
+    background-color: red;
+}
+
+
+header h1 {
+    margin: 0;
+    background-color: wheat;
+    height: 100%;
+}
+
+header .wrapper,
+footer .wrapper {
+    width: 90%
+}
+
+footer p {
+    margin: 0;
+}
+
+main {
+    background-color: white;
+}
+
