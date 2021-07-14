@@ -1,98 +1,14 @@
 @import 'setup';
 @import 'variables';
 @import 'mixins';
+@import 'generalStyles';
+@import 'landingPage';
+@import 'mainBoard';
+@import 'gameOver';
 
+.gameOver,
 .mainBoard {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    display: none;
 }
 
-.wrapper {
-    width: 90%;
-    background-color: purple;
-    height: 100vh;
- 
-    
-}
 
-.main h1 {
-    height: 10vh;
-    margin: 0;
-}
-
-.topContainer {
-    display: flex;
-    flex-direction: row;
-    height: 15vh;
-    background-color: green;
-    text-align: center
-}
-
-.a {
-    width: 25%;
-    background-color: pink;
-}
-
-.b {
-    width: 60%;
-    background-color: gray;
-} 
-
-.c {
-    width: 15%;
-    background-color: thistle
-}
-
-.botContainer {
-    height: 75%;
-    width: 100%;
-    background-color: turquoise;
-    display: flex;
-    flex-direction: row;
-}
-
-.characterCredentials {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-}
-
-.d {
-    height: 65%;
-    background-color: green
-}
-
-.e {
-    height: 35%;
-    background-color: yellow;
-}
-
-.gameGrid {
-    width: calc(75vw * .9);
-    // border: 0.1rem solid black;
-    display: flex; 
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 auto;
-}
-
-.place {
-    width: calc(((75vw * .9)) /10);
-    height: calc(75vh / 10);
-    // border: 1px solid red;
-}
-
-.beer {
-    background-color: red;
-}
-
-.wine {
-    background-color: blue;
-}
-
-.test {
-    background-color: black;
-}

@@ -1,0 +1,52 @@
+//Landing Section
+
+.loading {
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+// .titles {
+//     text-align: center;
+// }
+
+.loadingHeadings h2 {
+    // text-align: center;
+    padding: 1rem 0;
+}
+
+.characterGallery {
+    border: 15px solid lightpink;
+    border-radius: 10px;
+    background-color: white;
+    // margin: 0 80px;
+    width: 100%;
+}
+
+.characterFlex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    padding: 2.5rem 1rem;
+        li {
+            list-style-type: none;
+            padding: 0 2%;
+            // need to get these responsive
+        }
+        img {
+            width: 100%
+        }
+}
+
+.characterButton {
+    border: none;
+    background-color: white;
+    padding: 0;
+}
+
+.characterButton:hover {
+    transform: scale(1.1);
+}
