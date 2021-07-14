@@ -4,7 +4,6 @@
 //Hide loading page and display mainBoard
 //Add an h2 that shows the high score.
 
-
 // for (let i = 0; i < characterButton.length; i ++ ) {
 //     characterButton[i]
 // }
@@ -30,4 +29,3 @@ characterButton.forEach(button => button.addEventListener('click', (e) => {
     loadingPage.style.display = "none";
     mainBoard.style.display = "block";
 }))
-
