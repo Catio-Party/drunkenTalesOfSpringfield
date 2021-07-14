@@ -42,7 +42,8 @@
 
 .scoreContainer {
     width: 15%;
-    background-color: thistle
+    background-color: thistle;
+    font-size: 0.8rem;
 }
 
 //Bottom 
@@ -71,7 +72,7 @@
     background-color: yellow;
 }
 
-//GameBoard and Stylings Inside
+//GameBoard and Stylings Inside and Dynamic Changes by Game
 
 .gameGrid {
     width: calc(75vw * .9);
@@ -84,8 +85,8 @@
 
 .place {
     width: calc(((74.99vw * .9)) / 10);
-    height: calc(75vh / 10);
-    border: 1px solid red;
+    height: calc(70.5vh / 10);
+    border: 1px solid blue;
 }
 
 .beer {
@@ -138,7 +139,7 @@
 }
   
 .soberLevel {
-    width: 50%;
+    width: 25%;
     height: 1.5rem;
     background-color: red;
 }

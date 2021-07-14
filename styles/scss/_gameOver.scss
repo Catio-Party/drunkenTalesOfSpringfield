@@ -5,7 +5,8 @@
     height: 88vh;
     display: flex;
     justify-content: center;
-    text-align: center;   
+    text-align: center; 
+    align-items: center;
 }
 
 .gameOver .wrapper {
@@ -16,7 +17,7 @@
 
 .gameOver h2{
     font-size: 2.5rem;
-    background-color: green;
+    background-color: pink;
     padding: 1.5rem 0 1.5rem 0;
 }
 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // let characterQuotes
+        // // THE SIMPSONS and OTHERS API
+        // const url = new URL('http://api.chrisvalleskey.com/fillerama/get.php')
+        // url.search = new URLSearchParams({
+        //     format: 'json',
+        // })
+
+        // const apiCall = (param, show, character) => {
+        //     const tryNew = async () => {
+        //         url.searchParams.set(param, show)
+        //         const res = await fetch(url)
+        //         const data = res.json()
+        //         return data
+        //     }
+        //     tryNew(character)
+        //         .then((res) => {
+        //             characterQuotes = res.db.filter(x => x.source == character).map(x => x.quote)
+        //             console.log(characterQuotes)  
+        //             console.log(characterQuotes[5])          
+        //         })
+        // }
+
+        // apiCall('show', 'starwars', 'Han Solo')
+
+        // fetch(url)
+        // .then((res) => {
+        //     // console.log(res)
+        //     return res.json()
+        // })
+        // .then((res) => {
+        //     console.log(res)
+        //     let x = res.db
+        //     let y = x.filter(x => x.source == "Homer")
+        //     console.log(y)
+        // })
+
+        const app = {}
+
+        app.characterQuotes = []
+
+        app.url = new URL('http://api.chrisvalleskey.com/fillerama/get.php')
+        app.url.search = new URLSearchParams({
+            format: 'json',
+        })
+
+        app.apiCall = async (param, show, character) => {
+            const tryNew = async () => {
+                app.url.searchParams.set(param, show)
+                const res = await fetch(app.url)
+                const data = await res.json()
+                return data
+            }
+            await tryNew(character)
+                .then((res) => {
+                    console.log('callllled')
+                    app.characterQuotes = res.db.filter(x => x.source == character).map(x => x.quote)
+    
+                })
+            return Promise.resolve()     
+        }
+
+
+        app.displayQuotes = async () => {
+            await app.apiCall('show', 'starwars', 'Han Solo')
+            console.log(app.characterQuotes)
+        }
+
+        app.displayQuotes()
+
+        // const waitForQuote = async () => {
+        //     await app.apiCall('show', 'starwars', 'Han Solo');
+        //     console.log(app.characterQuotes)
+        // }
+
+        // waitForQuote()
+
+        // let x = setTimeout(() => {
+        //     console.log('called this one')
+        //     console.log(app.characterQuotes)
+        // }, 5000)
+
+        // x()
+
+
+
+    </script>
+</body>
+
+</html>
