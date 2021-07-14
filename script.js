@@ -45,7 +45,6 @@ app.displayCharacteristics = async () => {
     await app.apiCall('show', 'simpsons', 'Homer')
     app.characterQuoteDisplay.textContent = app.characterQuotes[1]
 
-
     //Change Quote function
     app.changeQuote = () => {
         console.log('changing quotes')
@@ -56,6 +55,9 @@ app.displayCharacteristics = async () => {
     app.changeQuote()
     app.quoteInterval = () => endQuote = setInterval(app.changeQuote, 7500)
     app.quoteInterval()
+
+    //Change character Profile Div
+    
 
 
 }
