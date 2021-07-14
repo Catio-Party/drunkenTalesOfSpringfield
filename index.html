@@ -34,23 +34,23 @@
                     <!-- need to get images without backgrounds! Also, I think that if the imgs are to be clickable, they should be a button -->
                     <ul class="characterFlex">
                         <li>
-                            <button class="characterButton">
-                                <img src="./assets/homer.jpg" id="homer" alt="">
+                            <button id="homer" class="characterButton">
+                                <img class="homer" src="./assets/homer.jpg" alt="" >
                             </button>
                         </li>
                         <li>
-                            <button class="characterButton">
-                                <img src="./assets/fry.jpg" id="fry" alt="">
+                            <button id="fry" class="characterButton">
+                                <img class="fry" src="./assets/fry.jpg" alt="">
                             </button>
                         </li>
                         <li>
-                            <button class="characterButton">
-                                <img src="./assets/darth.jpg" id="darth" alt="">
+                            <button id="darth" class="characterButton">
+                                <img class="darth" src="./assets/darth.jpg" alt="">
                             </button>
                         </li>
                         <li>
-                            <button class="characterButton">
-                                <img src="./assets/han.jpg" id="han" alt="">
+                            <button id="han" class="characterButton">
+                                <img class="han" src="./assets/han.jpg" alt="">
                             </button>
                         </li>
                     </ul>
@@ -61,7 +61,7 @@
 
 
         <!-- main playing section -->
-        <section id="main" class="main">
+        <section id="mainBoard" class="mainBoard">
             <div class="wrapper">
                 <!-- two main divs -->
                 <div class=“topContainer”>
@@ -71,8 +71,10 @@
                 </div>
                 <div class=“botContainer”>
                     <div class=“characterCredentials”>
-                        <div>character pic</div>
-                        <div>quotes</div>
+                        <div class="playersCharacter">
+                            <!-- character pick will display here -->
+                        </div>
+                        <p>quotes</p>
                     </div>
                     <div class=“gameGrid”>
                         <!-- game grid happens here -->
@@ -102,7 +104,7 @@
         <p>Created at <a href="https://junocollege.com/">Juno College</a></p>
     </footer>
     ​
-    ​
+    ​<script src="landingPageApp.js"></script>
 </body>
 
 </html>

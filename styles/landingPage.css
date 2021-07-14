@@ -1,9 +1,0 @@
-.characterGallery {
-  border: 3px solid yellow;
-}
-
-.characterFlex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}

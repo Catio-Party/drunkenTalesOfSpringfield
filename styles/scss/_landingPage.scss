@@ -1,9 +1,11 @@
 // note: anytime you see a random border commented out, it's just me using a border for visual assistance regarding the element size etc. - Beth
 
-// header {
-//     border: 3px solid green;
-// }
-
+// thinking we should put this img styling on the main styles page - Beth
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
 .titles {
     text-align: center;
@@ -28,7 +30,7 @@
     padding: 50px 0;
         li {
             list-style-type: none;
-            // need to get these responsive
+            margin: 0 auto;
         }
 }
 
