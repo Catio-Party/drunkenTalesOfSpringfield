@@ -490,13 +490,63 @@ main {
   top: 25%;
 }
 
-.beerAndWine {
+.liquor {
+  background-color: yellowgreen;
+  position: relative;
+}
+
+.liquor::before {
+  content: "🥃";
+  font-size: 1.5rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 25%;
+}
+
+.bw {
   background-color: violet;
   position: relative;
 }
 
-.beerAndWine::before {
+.bw::before {
   content: "🍺🍷";
+}
+
+.bl {
+  background-color: orange;
+  position: relative;
+}
+
+.bl::before {
+  content: "🍺🥃";
+}
+
+.wl {
+  background-color: plum;
+  position: relative;
+}
+
+.wl::before {
+  content: "🍷🥃";
+}
+
+.bwl {
+  background-color: violet;
+  position: relative;
+}
+
+.bwl::before {
+  content: "🎉";
+  font-size: 2.5rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 25%;
 }
 
 .soberBar {
@@ -551,6 +601,6 @@ main {
 }
 
 .gameOver,
-.loading {
+.mainBoard {
   display: none;
 }

@@ -8,14 +8,58 @@ app.characterQuoteDisplay = document.querySelector('.characterQuote')
 app.highScoreDisplay = document.querySelector('.highScore')
 app.currentScoreDisplay = document.querySelector('.currentScore')
 
+app.characterButton = document.querySelectorAll('.characterButton');
+app.loadingPage = document.querySelector('.loading');
+
+app.characterPic = document.querySelector('.characterPic'); // only using once
+app.characterProfile = document.querySelector('.characterProfile')
+
+app.characterParams = []
+app.characterQuotes = []
+
 
 app.area = []
 app.sober = 50
 app.currentScore = 0
 app.highScore = 0
 app.level = 0;
-app.characterChosen;
 
+app.characterButton.forEach(button => button.addEventListener('click', (e) => {
+    e.target.classList.contains('homer')
+        ? app.characterParams = ['simpsons', 'Homer', 'Smrt and lovable drunk']
+        : e.target.classList.contains('fry')
+            ? app.characterParams = ['futurama', 'Fry', 'Intergalactic delivery boy']
+            : e.target.classList.contains('darth')
+                ? app.characterParams = ['starwars', 'Darth Vader', 'Has daddy issues']
+                : app.characterParams = ['starwars', 'Han Solo', 'Self proclaimed bad boy']
+
+    // : e.target.classList.contains('han')
+    // ? app.characterParams = ['show', 'starwars', 'Han Solo', 3]
+    // : null
+
+    app.loadingPage.style.display = "none";
+    app.mainBoard.style.display = "flex";
+    app.init = () => {
+        app.makeGrid()
+        app.makeClick()
+        app.liquor()
+        app.beer()
+        app.wine()
+        app.soberCheck()
+        app.displayCharacteristics()
+    }
+
+    app.init()
+
+}))
+
+
+
+app.area = []
+app.sober = 50
+app.currentScore = 0
+app.highScore = 0
+app.level = 0;
 app.characterQuotes = []
 
 app.url = new URL('http://api.chrisvalleskey.com/fillerama/get.php')
@@ -23,17 +67,16 @@ app.url.search = new URLSearchParams({
     format: 'json',
 })
 
-app.apiCall = async (param, show, character) => {
-    const tryNew = async () => {
-        app.url.searchParams.set(param, show)
+app.apiCall = async (tvShow, character) => {
+    const getQuotes = async () => {
+        app.url.searchParams.set('show', tvShow)
         const res = await fetch(app.url)
         const data = await res.json()
         return data
     }
-    await tryNew(character)
+    await getQuotes(character)
         .then((res) => {
-            console.log('callllled')
-            app.characterQuotes = res.db.filter(x => x.source == character).map(x => x.quote)
+            app.characterQuotes = res.db.filter(x => x.source == character).map(y => y.quote)
         })
     return Promise.resolve()
 }
@@ -41,9 +84,14 @@ app.apiCall = async (param, show, character) => {
 
 
 app.displayCharacteristics = async () => {
+    //Change Character Display Picture
+    app.characterPic.innerHTML = `<img src="./assets/${app.characterParams[1].split(' ')[0]}.jpg" alt="">`
+
+    //change Character Profile Information
+    app.characterProfile.textContent = `${app.characterParams[1]}: ${app.characterParams[2]}`
+
     //API Call for Quotes
-    await app.apiCall('show', 'simpsons', 'Homer')
-    app.characterQuoteDisplay.textContent = app.characterQuotes[1]
+    await app.apiCall(...app.characterParams)
 
     //Change Quote function
     app.changeQuote = () => {
@@ -51,24 +99,14 @@ app.displayCharacteristics = async () => {
         let randomQuoteNum = Math.floor(Math.random() * app.characterQuotes.length)
         app.characterQuoteDisplay.textContent = app.characterQuotes[randomQuoteNum]
     }
+
     //Call Funtions and setInterval
     app.changeQuote()
     app.quoteInterval = () => endQuote = setInterval(app.changeQuote, 7500)
     app.quoteInterval()
-
-    //Change character Profile Div
-    
-
-
 }
 
 app.clearQuotes = () => clearInterval(endQuote)
-
-app.displayCharacteristics()
-
-
-
-
 
 //Make the playing field
 app.makeGrid = () => {
@@ -88,52 +126,185 @@ app.randomBeer = () => {
         beerIndex = Math.floor(Math.random() * app.area.length)
     } while (app.area[beerIndex].classList.contains('beer'))
 
-    // console.log(`level: ${app.level}`)
     app.area[beerIndex].classList.add('beer')
     setTimeout(() => {
-        app.area[beerIndex].classList.remove('beerAndWine')
+        app.area[beerIndex].classList.remove('bw')
         app.area[beerIndex].classList.remove('beer')
-
     }, 4000)
 }
 
-//Generate a random liquor
+//Generate Random Liquor
 app.randomLiquor = () => {
-    console.log('randomLiquor')
+    const directionArray = ['up', 'down', 'left', 'right']
+    let liquorMoveCounter = 0
+    let liquorIndex = Math.floor(Math.random() * app.area.length)
+    let liquorDirection = directionArray[Math.floor(Math.random() * directionArray.length)]
+
+    app.area[liquorIndex].classList.contains('bw')
+        ? (app.area[liquorIndex].classList.add('bwl'), app.area[liquorIndex].classList.add('liquor'))
+        : app.area[liquorIndex].classList.contains('beer')
+            ? (app.area[liquorIndex].classList.add('bl'), app.area[liquorIndex].classList.add('liquor'))
+            : app.area[liquorIndex].classList.contains('wine')
+                ? (app.area[liquorIndex].classList.add('wl'), app.area[liquorIndex].classList.add('liquor'))
+                : app.area[liquorIndex].classList.add('liquor')
+
+    // app.area[wineIndex].classList.contains('beer') ? (app.area[wineIndex].classList.add('beerAndWine'), app.area[wineIndex].classList.add('wine')) : app.area[wineIndex].classList.add('wine')
+
+    app.moveLiquor = () => {
+        liquorMoveCounter++
+        // app.area[wineIndex].classList.remove('beerAndWine')
+        // app.area[liquorIndex].classList.remove('liquor')
+        app.area[liquorIndex].classList.remove('bwl')
+        app.area[liquorIndex].classList.remove('bl')
+        app.area[liquorIndex].classList.remove('wl')
+        app.area[liquorIndex].classList.remove('liquor')
+
+        // wineIndex % 10 != 9 ? wineIndex++ : wineIndex -= 9 
+        liquorDirection == 'up'
+            ? liquorIndex >= 10 ? liquorIndex -= 10 : liquorIndex += 90
+            : liquorDirection == "right"
+                ? liquorIndex % 10 != 9 ? liquorIndex++ : liquorIndex -= 9
+                : liquorDirection == "down"
+                    ? liquorIndex <= 89 ? liquorIndex += 10 : liquorIndex -= 90
+                    : liquorIndex % 10 != 0 ? liquorIndex-- : liquorIndex += 9
+
+        app.area[liquorIndex].classList.contains('bw')
+            ? (app.area[liquorIndex].classList.add('bwl'), app.area[liquorIndex].classList.add('liquor'))
+            : app.area[liquorIndex].classList.contains('beer')
+                ? (app.area[liquorIndex].classList.add('bl'), app.area[liquorIndex].classList.add('liquor'))
+                : app.area[liquorIndex].classList.contains('wine')
+                    ? (app.area[liquorIndex].classList.add('wl'), app.area[liquorIndex].classList.add('liquor'))
+                    : app.area[liquorIndex].classList.add('liquor')
+
+
+        // app.area[wineIndex].classList.contains('beer') ? (app.area[wineIndex].classList.add('beerAndWine'), app.area[wineIndex].classList.add('wine')) : app.area[wineIndex].classList.add('wine')
+
+
+
+        // wineMoveCounter >= 20 ? (app.area[wineIndex].classList.remove('beerAndWine'), app.area[wineIndex].classList.remove('wine'), app.finishWine()) : null
+
+        liquorMoveCounter >= 20 ? (app.area[liquorIndex].classList.remove('bwl'), app.area[liquorIndex].classList.remove('bl'), app.area[liquorIndex].classList.remove('wl'), app.area[liquorIndex].classList.remove('liquor'), app.finishLiquor()) : null
+    }
+
+    app.moveLiquorInterval = () => stopLiquorInterval = setInterval(app.moveLiquor, 250 - (2 * app.level))
+    app.finishLiquor = () => clearInterval(stopLiquorInterval)
+    app.moveLiquorInterval();
 
 }
 
-//Generate a random wine
+
+
+//Regular Random Wine Function
 app.randomWine = () => {
-    console.log('randomwine')
+    // console.log('randomwine')
     // let control;
     // app.level >= 5 ? control = 5 : control = app.level
     let wineMoveCounter = 0
 
-    let randomWineNum = Math.floor(Math.random() * app.area.length)
-    app.area[randomWineNum].classList.contains('beer') ? (app.area[randomWineNum].classList.add('beerAndWine'), app.area[randomWineNum].classList.add('wine')) : app.area[randomWineNum].classList.add('wine')
+    let wineIndex = Math.floor(Math.random() * app.area.length)
+    // console.log(wineIndex)
+    app.area[wineIndex].classList.contains('bl')
+        ? (app.area[wineIndex].classList.add('bwl'), app.area[wineIndex].classList.add('wine'))
+        : app.area[wineIndex].classList.contains('liquor')
+            ? (app.area[wineIndex].classList.add('wl'), app.area[wineIndex].classList.add('wine'))
+            : app.area[wineIndex].classList.contains('beer')
+                ? (app.area[wineIndex].classList.add('bw'), app.area[wineIndex].classList.add('wine'))
+                : app.area[wineIndex].classList.add('wine')
+
+    // app.area[wineIndex].classList.contains('beer') ? (app.area[wineIndex].classList.add('bw'), app.area[wineIndex].classList.add('wine')) : app.area[wineIndex].classList.add('wine')
 
     app.moveWine = () => {
         wineMoveCounter++
-        app.area[randomWineNum].classList.remove('beerAndWine')
-        app.area[randomWineNum].classList.remove('wine')
-        randomWineNum % 10 != 9 ? randomWineNum++ : randomWineNum -= 9
-        app.area[randomWineNum].classList.contains('beer') ? (app.area[randomWineNum].classList.add('beerAndWine'), app.area[randomWineNum].classList.add('wine')) : app.area[randomWineNum].classList.add('wine')
-        wineMoveCounter >= 10 ? (loseWine = 0, app.area[randomWineNum].classList.remove('beerAndWine'), app.area[randomWineNum].classList.remove('wine'), app.finishWine()) : null
+        // app.area[wineIndex].classList.remove('bw')
+        // app.area[wineIndex].classList.remove('wine')
+        app.area[wineIndex].classList.remove('bwl')
+        app.area[wineIndex].classList.remove('wl')
+        app.area[wineIndex].classList.remove('bw')
+        app.area[wineIndex].classList.remove('wine')
+
+
+        wineIndex % 10 != 9 ? wineIndex++ : wineIndex -= 9
+        // app.area[wineIndex].classList.contains('beer') ? (app.area[wineIndex].classList.add('bw'), app.area[wineIndex].classList.add('wine')) : app.area[wineIndex].classList.add('wine')
+        app.area[wineIndex].classList.contains('bl')
+            ? (app.area[wineIndex].classList.add('bwl'), app.area[wineIndex].classList.add('wine'))
+            : app.area[wineIndex].classList.contains('liquor')
+                ? (app.area[wineIndex].classList.add('wl'), app.area[wineIndex].classList.add('wine'))
+                : app.area[wineIndex].classList.contains('beer')
+                    ? (app.area[wineIndex].classList.add('bw'), app.area[wineIndex].classList.add('wine'))
+                    : app.area[wineIndex].classList.add('wine')
+
+        wineMoveCounter >= 10 ? (app.area[wineIndex].classList.remove('bwl'), app.area[wineIndex].classList.remove('wl'), app.area[wineIndex].classList.remove('bw'), app.area[wineIndex].classList.remove('wine'), app.finishWine()) : null
     }
-    app.moveWineInterval = () => stopWineInterval = setInterval(app.moveWine, 500 - (2 * app.level))
+    app.moveWineInterval = () => stopWineInterval = setInterval(app.moveWine, 495 - (2 * app.level))
     app.finishWine = () => clearInterval(stopWineInterval)
     app.moveWineInterval();
 }
 
+//Generate a 2 random wine at a time
+// app.randomWine = () => {
+//     console.log('randomwine')
+//     // let control;
+//     // app.level >= 5 ? control = 5 : control = app.level
+//     let randomWineArray = []
+//     let wineMoveCounter = [0, 0]
+
+//     let randomWineNum = Math.floor(Math.random() * app.area.length)
+//     let randomWineNum2
+//     do {
+//         randomWineNum2 = Math.floor(Math.random() * app.area.length)
+//     } while (randomWineNum == randomWineNum2)
+//     randomWineArray.push(randomWineNum, randomWineNum2)
+
+//     randomWineArray.map(x => app.area[x].classList.contains('beer') ? (app.area[x].classList.add('beerAndWine'), app.area[x].classList.add('wine')) : app.area[x].classList.add('wine'))
+
+// app.area[randomWineNum].classList.contains('beer') ? (app.area[randomWineNum].classList.add('beerAndWine'), app.area[randomWineNum].classList.add('wine')) : app.area[randomWineNum].classList.add('wine')
+// app.area[randomWineNum2].classList.contains('beer') ? (app.area[randomWineNum2].classList.add('beerAndWine'), app.area[randomWineNum2].classList.add('wine')) : app.area[randomWineNum2].classList.add('wine')
+
+//Product 2 Wines
+//     app.moveWine = () => {
+
+//         randomWineArray.map((x, i) => {
+//             let changeNum = randomWineArray[i]
+
+//             wineMoveCounter[i]++
+//             app.area[randomWineArray[i]].classList.remove('beerAndWine')
+//             console.log(wineMoveCounter)
+
+
+//             app.area[randomWineArray[i]].classList.remove('wine')
+
+//             randomWineArray[i] % 10 != 9 ? randomWineArray[i]++ : randomWineArray[i] -= 9
+
+//             app.area[randomWineArray[i]].classList.contains('beer') ? (app.area[randomWineArray[i]].classList.add('beerAndWine'), app.area[randomWineArray[i]].classList.add('wine')) : app.area[randomWineArray[i]].classList.add('wine')
+
+
+//             wineMoveCounter[i] >= 10 ? (app.area[randomWineArray[i]].classList.remove('beerAndWine'), app.area[randomWineArray[i]].classList.remove('wine'), app.finishWine(), console.log("I DID IT)")) : null
+//         })
+//     }
+
+//     // app.moveWine = () => {
+//     //     wineMoveCounter++
+//     //     app.area[randomWineNum].classList.remove('beerAndWine')
+//     //     app.area[randomWineNum].classList.remove('wine')
+//     //     randomWineNum % 10 != 9 ? randomWineNum++ : randomWineNum -= 9
+//     //     app.area[randomWineNum].classList.contains('beer') ? (app.area[randomWineNum].classList.add('beerAndWine'), app.area[randomWineNum].classList.add('wine')) : app.area[randomWineNum].classList.add('wine')
+//     //     wineMoveCounter >= 10 ? (loseWine = 0, app.area[randomWineNum].classList.remove('beerAndWine'), app.area[randomWineNum].classList.remove('wine'), app.finishWine()) : null
+//     // }
+//     app.moveWineInterval = () => stopWineInterval = setInterval(app.moveWine, 500 - (2 * app.level))
+//     app.finishWine = () => clearInterval(stopWineInterval)
+//     app.moveWineInterval();
+// }
+
 //need function for producing random liquor and unifying all 3 alcohols into a single function
 
 //Set Intervals for getting Wine and Beer
-app.wine = () => endWine = setInterval(app.randomWine, 6000 - 25 * app.level)
-app.beer = () => endBeer = setInterval(app.randomBeer, 500 - 2.5 * app.level)
+app.wine = () => endWine = setInterval(app.randomWine, 5000 - 25 * app.level)
+app.beer = () => endBeer = setInterval(app.randomBeer, 600 - 2.5 * app.level)
+app.liquor = () => endLiquor = setInterval(app.randomLiquor, 7500 - 35 * app.level)
 
 app.clearBeer = () => clearInterval(endBeer)
 app.clearWine = () => clearInterval(endWine)
+app.clearLiquor = () => clearInterval(endLiquor)
 
 //Control the Sobriety Bar
 app.moveSoberBar = () => {
@@ -143,19 +314,66 @@ app.moveSoberBar = () => {
 // Add events for clicking wine/hard liquor, and tracking scores
 app.makeClick = () => {
     app.area.map(x => x.addEventListener("click", (e) => {
-
-        //      e.target.innerHTML = `<img class="pokeFound" src=${pokeArray[pokeSelection][2]}>`
-        //      pokemonDisplay.textContent = `Player ${playerArray[turnIndex]} caught Pokemon number ${pokeArray[pokeSelection][1]}, ${pokeArray[pokeSelection][0]}!`
-
-        if (e.target.classList.contains('beer') && e.target.classList.contains('wine')) {
-            console.log('both at the same time')
+        if (e.target.classList.contains('beer') && e.target.classList.contains('wine') && e.target.classList.contains('liquor')) {
+            console.log('THREE AT ONCE, PARTY TIME')
+            app.clearBeer()
+            app.finishWine()
+            app.clearWine()
+            app.finishLiquor()
+            app.clearLiquor()
+            e.target.classList.remove('beer')
+            e.target.classList.remove('wine')
+            e.target.classList.remove('liquor')
+            e.target.classList.remove('bl')
+            e.target.classList.remove('bw')
+            e.target.classList.remove('bwl')
+            app.sober = 0
+            app.currentScore += 100
+            app.currentScoreDisplay.textContent = app.currentScore
+            console.log(app.sober)
+            app.beer()
+            app.wine()
+            app.liquor()
+        } else if (e.target.classList.contains('liquor') && e.target.classList.contains('wine')) {
+            console.log('liquor and wine is classy')
+            app.finishLiquor()
+            app.clearLiquor()
+            app.finishWine()
+            app.clearWine()
+            e.target.classList.remove('beer')
+            e.target.classList.remove('wine')
+            e.target.classList.remove('bw')
+            app.sober <= 40 ? app.sober = 0 : app.sober -= 40;
+            app.moveSoberBar()
+            app.currentScore += 40;
+            app.currentScoreDisplay.textContent = app.currentScore
+            console.log(app.sober)
+            app.liquor()
+            app.wine() 
+        } else if (e.target.classList.contains('liquor') && e.target.classList.contains('beer')) {
+            console.log('beer after liquor, something somethign sicket')
+            app.finishLiquor()
+            app.clearLiquor()
+            app.clearBeer()
+            e.target.classList.remove('beer')
+            e.target.classList.remove('liquor')
+            e.target.classList.remove('bl')
+            app.sober <= 30 ? app.sober = 0 : app.sober -= 30;
+            app.moveSoberBar()
+            app.currentScore += 30;
+            app.currentScoreDisplay.textContent = app.currentScore
+            console.log(app.sober)
+            app.liquor()
+            app.beer() 
+        } else if (e.target.classList.contains('beer') && e.target.classList.contains('wine')) {
+            console.log('beer and wine, you swine!')
             app.clearBeer()
             app.finishWine()
             app.clearWine()
             e.target.classList.remove('beer')
             e.target.classList.remove('wine')
-            e.target.classList.remove('beerAndWine')
-            app.sober <= 19 ? app.sober = 0 : app.sober -= 20;
+            e.target.classList.remove('bw')
+            app.sober <= 20 ? app.sober = 0 : app.sober -= 20;
             app.moveSoberBar()
             app.currentScore += 20;
             app.currentScoreDisplay.textContent = app.currentScore
@@ -163,20 +381,34 @@ app.makeClick = () => {
             app.beer()
             app.wine()
         } else if (e.target.classList.contains('beer')) {
-            console.log("makeclick")
+            console.log("clicked beer")
             app.clearBeer()
             e.target.classList.remove('beer')
             app.sober <= 3 ? app.sober = 0 : app.sober -= 4;
             app.moveSoberBar()
             app.currentScore += 3
             app.currentScoreDisplay.textContent = app.currentScore
-            app.currentScore > app.highScore ? app.highScoreDisplay.textContent = app.currentScore : null
+            // app.currentScore > app.highScore ? app.highScoreDisplay.textContent = app.currentScore : null
             console.log(app.sober)
             app.level++
             // console.log(app.level)
             app.beer()
+        } else if (e.target.classList.contains('liquor')) {
+            console.log("clicked liquor")
+            app.clearLiquor()
+            app.finishLiquor()
+            e.target.classList.remove('liquor')
+            app.sober <= 14 ? app.sober = 0 : app.sober -= 14;
+            app.moveSoberBar()
+            app.currentScore += 14
+            app.currentScoreDisplay.textContent = app.currentScore
+            // app.currentScore > app.highScore ? app.highScoreDisplay.textContent = app.currentScore : null
+            console.log(app.sober)
+            app.level++
+            // console.log(app.level)
+            app.liquor()
         } else if (e.target.classList.contains('wine')) {
-            console.log("makeclick")
+            console.log("clicked wine")
             app.clearWine()
             app.finishWine()
             e.target.classList.remove('wine')
@@ -184,17 +416,17 @@ app.makeClick = () => {
             app.moveSoberBar()
             app.currentScore += 7
             app.currentScoreDisplay.textContent = app.currentScore
-            app.currentScore > app.highScore ? app.highScoreDisplay.textContent = app.currentScore : null
+            // app.currentScore > app.highScore ? app.highScoreDisplay.textContent = app.currentScore : null
             console.log(app.sober)
             app.level++
             // console.log(app.level)
             app.wine()
         } else if (!e.target.classList.contains('beer')) {
             console.log('you suck')
-            app.currentScore -=
-                app.currentScoreDisplay.textContent = app.currentScore
-            app.currentScore > app.highScore ? app.highScoreDisplay.textContent = app.currentScore : null
-            app.sober += 3
+            app.currentScore -= 4 
+            app.currentScoreDisplay.textContent = app.currentScore
+            // app.currentScore > app.highScore ? app.highScoreDisplay.textContent = app.currentScore : null
+            app.sober += 4
             console.log(app.sober)
         }
     }))
@@ -213,57 +445,21 @@ app.soberCheck = (totalChecks = 0) => {
     const finalCheck = async () => {
         await addSober();
         app.sober >= 100
-            ? (app.clearBeer(), app.clearWine(), console.log("Game Over"), app.mainBoard.style.display = "none", app.gameOver.style.display = "flex")
+            ? (app.clearBeer(), app.clearWine(), app.clearLiquor(), app.clearQuotes(), console.log("Game Over"), app.mainBoard.style.display = "none", app.gameOver.style.display = "flex")
             : (totalChecks++, app.soberCheck(totalChecks))
     }
     finalCheck()
 }
 
 
-//LOADING PAGE
-
-//Make a listener all buttons (click), choose character player picks and manipulate into mainBoard
-//Hide loading page and display mainBoard 
-//Add an h2 that shows the high score. 
-
-// const characterButton = document.getElementsByClassName('characterButton')
-// const loadingPage = document.getElementsById('loading')
-// const mainBoard = document.getElementById('mainBoard')
-
-// const characterPic = document.querySelector('.d')
-// characterPic.innerHTML = `<img class="make a class here" src=${chacacter image link here}>`
 
 
-
-
-// characterButton.forEach(button => button.addEventListener('click', (e) => {
-//     // change ID to button
-//     e.target.classList.contains('barney')
-//     ? mainBoard.characterdiv.innerHTML = add pic of barney
-//     : e.target.classList.contains('homer')
-//     ? mainBoard.chardiver = homer 
-//     : etc etc 
-
-// loadingPage.style.display = "none"
-// mainBoard.style.display = "block"
-
-// }))
-
-// for (let i  = 0; i < characterButton.length; i ++ ) {
-//     characterButton[i].addEventListener('click', () => {
-//         do this do that do this
-//     })
+// app.init = () => {
+//     app.makeGrid()
+//     app.makeClick()
+//     app.beer()
+//     app.wine()
+//     app.soberCheck()
 // }
 
-
-
-
-app.init = () => {
-    app.makeGrid()
-    app.makeClick()
-    app.beer()
-    app.wine()
-    app.soberCheck()
-}
-
-app.init()
+// app.init()
