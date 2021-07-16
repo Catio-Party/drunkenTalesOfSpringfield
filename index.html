@@ -15,65 +15,56 @@
 <body>
     <header>
         <div class="wrapper">
-            <h1>Game Title in the works</h1>
+            <p>a collaboration by <a href="https://github.com/Catio-Party">Catio Party</a></p>
         </div>
     </header>
     <main>
-        <!-- landing page -->
         <section class="loading">
             <div class="wrapper">
-                <!-- headings area -->
                 <div class="loadingHeadings">
-                    <h2>High Score: 0</h2>
+                    <h2>Drunken Tales of Springfield</h2>
                     <h2>Choose Your Player</h2>
                 </div>
-                <!-- end headings area -->
                 <div class="characterGallery">
-                    <!-- need to get images without backgrounds! Also, I think that if the imgs are to be clickable, they should be a button -->
                     <ul class="characterFlex">
                         <li>
                             <button class="characterButton">
-                                <img id="homer" class="homer" src="./assets/homer.jpg" alt="">
+                                <img id="homer" class="homer" src="./assets/homer.jpg" alt="Homer Simpson">
                             </button>
                         </li>
                         <li>
                             <button class="characterButton">
-                                <img id="fry" class="fry" src="./assets/fry.jpg" alt="">
+                                <img id="fry" class="fry" src="./assets/fry.jpg" alt="Philip J. Fry">
                             </button>
                         </li>
                         <li>
                             <button class="characterButton">
-                                <img id="darth" class="darth" src="./assets/darth.jpg" alt="">
+                                <img id="darth" class="darth" src="./assets/darth.jpg" alt="Darth Vader">
                             </button>
                         </li>
                         <li>
                             <button class="characterButton">
-                                <img id="han" class="han" src="./assets/han.jpg" alt="">
+                                <img id="han" class="han" src="./assets/han.jpg" alt="Han Solos">
                             </button>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
-        <!-- end landing page -->
 
-
-        <!-- main playing section -->
         <section id="mainBoard" class="mainBoard">
             <div class="wrapper">
-                <h1>The Drunken Tales of Springfield</h1>
+                <h2>drunken tales of springfield</h2>
                 <div class="topContainer">
                     <div class="characterProfile">Character name n profile</div>
                     <div class="soberContainer">
-                        <h3>Sobriety Bar</h3>
+                        <h3>sobriety bar</h3>
                         <div class="soberBar">
                             <div class="soberLevel"></div>
                         </div>
                     </div>
                     <div class="scoreContainer">
-                        <p>High Score:</p>
-                        <p class="highScore">0</p>
-                        <p>Current Score:</p>
+                        <p>Current score:</p>
                         <p class="currentScore">0</p>
                     </div>
                 </div>
@@ -89,28 +80,22 @@
 
         <section class="gameOver">
             <div class="wrapper">
-                <h2>You're Sober!</h2>
-                <h2>Time to go Home</h2>
-                <h3>Current Score: <span class=“endCurrentScore”>0</span></h3>
-                <h3>High Score: <span class=“endHigScore”>0</span></h3>
+                <h2>Ya sober friend, go home!</h2>
+                <h3>Current Score: <span class="endCurrentScore">0</span></h3>
+                <h3>High Score: <span class="endHighScore">0</span></h3>
                 <div class="buttons">
                     <button class="retry">Retry</button>
                     <button class="changeCharacter">Try with a new character!</button>
                 </div>
             </div>
         </section>
-        <!-- end Game over page section -->
-
     </main>
+
     <footer>
         <div class="wrapper">
             <p>Created at <a href="https://junocollege.com/">Juno College</a></p>
         </div>
     </footer>
-
-    <!-- <script src="app.js"></script> -->
-    <script src="gameOver.js"></script>
-
+    <script src="../script.js"></script>
 </body>
-
 </html>

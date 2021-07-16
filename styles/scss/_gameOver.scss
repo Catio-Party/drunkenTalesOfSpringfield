@@ -3,32 +3,46 @@
 .gameOver {
     width: 100vw;
     height: 88vh;
+    min-width: 440px;
     display: flex;
     justify-content: center;
-    text-align: center;   
+    text-align: center; 
+    align-items: center;
+    background-color: $accentColorA;
 }
 
 .gameOver .wrapper {
     height: 100%;
     width: 90%;
+    background-color: $accentColorG;
 }
 
 .gameOver h2{
     font-size: 2.5rem;
+    height: 29vh;
     color: $accentColorE;
     background-color: $accentColorH;
-    padding: 1.2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
 }
 
 .gameOver h3 {
     font-size: 1.8rem;
+    height: 15vh;
     background-color: $primaryColor;
-    padding: 1.2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 29vh;
     background-color: $accentColorG;
-    padding: 3rem 0 2rem 0;
         button {
             font-family: $baseFont;
             background-color: $accentColorH;

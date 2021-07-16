@@ -7,57 +7,71 @@
 
 html {
     font-size: 20px;
+}
+
+body {
     font-family: $baseFont;
     letter-spacing: .15rem;
     background-color: $accentColorA;
 }
 
 .wrapper {
-    max-width: 1140px;
+    max-width: 992px;
 }
 
 header, footer {
     display: flex;
     justify-content: center;
     text-align: center;
-}
-
-header {
-    height: 7vh;
-    margin: 1rem 0;
-}
-
-footer {
-    height: 4vh;
-    background-color: $accentColorA;
+    // vertical-align: middle;
+    align-items: center;
+    height: 5.5vh;
     font-size: .8rem;
-    padding-top: .5rem;
 }
 
-footer .wrapper {
-    background-color: $accentColorA;
-}
+// header {
+//     height: 5.5vh;
+//     font-size: .8rem;
+
+// }
+
+// footer {
+//     height: 5.5vh;
+//     background-color: $accentColorA;
+//     font-size: .8rem;
+// }
+
+// footer .wrapper {
+//     background-color: $accentColorA;
+// }
 
 
-header h1 {
-    margin: 0;
-    background-color: $accentColorA;
-    color: $primaryColor;
-    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
-    height: 100%;
-}
+// header h1 {
+//     margin: 0;
+//     background-color: $accentColorA;
+//     color: $primaryColor;
+//     text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+//     height: 100%;
+// }
 
 header .wrapper,
 footer .wrapper {
     width: 90%
 }
 
+header p,
 footer p {
     margin: 0;
         a {
             font-family: sans-serif, regular;
-            font-size: 1rem;
+            font-size: 1.2rem;
             letter-spacing: 0rem;
+            text-decoration: none;
+        }
+        a:focus,
+        a:hover {
+            font-size: 1.4rem;
+            color: $accentColorE;
         }
 }
 

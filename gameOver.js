@@ -18,11 +18,6 @@ app.currentScore = "fun times";
 app.highScore = "funest times";
 
 
-app.gameOver = (e) => {
-    e.target.classList.contains('retry') 
-        ? (app.mainBoard.style.display = 'flex', app.gameOver.style.display = 'none', app.StartGame())
-        : (app.loadingPage.style.display = 'flex', app.gameOver.style.display = 'none');
-}
 
 app.retryButton.addEventListener('click', app.gameOver);
 app.changeCharacterButton.addEventListener('click', app.gameOver);
@@ -35,4 +30,9 @@ app.setHighScore = () => {
     app.currentScore > app.highScore
     ? (app.highScore = app.currentScore, app.highScore.textContent = app.highScore)
     : app.highScore = app.highScore
+}
+app.gameOver = (e) => {
+    e.target.classList.contains('retry') 
+        ? (app.mainBoard.style.display = 'flex', app.gameOver.style.display = 'none', app.StartGame())
+        : (app.loadingPage.style.display = 'flex', app.gameOver.style.display = 'none');
 }
