@@ -605,7 +605,7 @@ main {
   cursor: pointer;
 }
 
-.gameOver,
-.mainBoard {
+.mainBoard,
+.loading {
   display: none;
 }
