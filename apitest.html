@@ -107,32 +107,41 @@
 
         // ayee()
 
-        async function ayee () {
+        // async function ayee () {
             
 
-            const x = () => {
-                return new Promise(resolve => {
-                    const y = () => {
-                console.log("this is the stuff")
-                }
-                y()
+        //     const x = () => {
+        //         return new Promise(resolve => {
+        //             const y = () => {
+        //         console.log("this is the stuff")
+        //         }
+        //         y()
            
-                    const z = () => endThis = setInterval(y, 1000)
+        //             const z = () => endThis = setInterval(y, 1000)
                    
-                    const a = () => clearInterval(endThis)
-                    z()
+        //             const a = () => clearInterval(endThis)
+        //             z()
 
 
-                    setTimeout(a(), 10000)
-                    setTimeout(resolve, 10000)
-                })
-            }
-            await x();
-            console.log("ayeeee this actually worked ")
-        }
+        //             setTimeout(a(), 10000)
+        //             setTimeout(resolve, 10000)
+        //         })
+        //     }
+        //     await x();
+        //     console.log("ayeeee this actually worked ")
+        // }
  
 
-        ayee()
+        // ayee()
+
+        const app = {}
+
+        app.beer = () => endBeer = setInterval(app.randomBeer, 600 - 2.5 * app.level)
+        
+        app.clearBeer = () => clearInterval(endBeer)
+
+        app.clearBeer()
+
 
     </script>
 </body>
