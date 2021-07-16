@@ -31,16 +31,31 @@
         height: 100%;
         text-overflow: ellipsis;
         padding: 0 2.5rem;
+        font-size: 0.8rem
     }
     
     .mainBoard .characterPic {
         display: none;
     }
+
+    .soberContainer {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .soberContainer h3 {
+        font-size: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
     .place {
         width: calc((98.5vw * .9)/ 10);
         height: calc(100%/10);
         border: 1px solid blue;
     }
+    
 }
 
 @media (max-width: 480px) {

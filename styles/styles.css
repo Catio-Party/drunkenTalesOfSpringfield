@@ -413,7 +413,7 @@ main {
 .characterProfile {
   width: 30%;
   font-size: 0.75rem;
-  padding: 0 0.1rem;
+  padding: 0 0.3rem;
 }
 
 .soberContainer {
@@ -427,7 +427,7 @@ main {
 }
 .scoreContainer p {
   font-size: 0.75rem;
-  padding: 0 0.1rem;
+  padding: 0 0.2rem;
 }
 
 .scoreContainer p:nth-child(2) {
@@ -628,7 +628,7 @@ main {
 
 .soberLevel {
   width: 25%;
-  height: 1.5rem;
+  height: 1.25rem;
   background-color: red;
 }
 
@@ -746,10 +746,32 @@ main {
     height: 100%;
     text-overflow: ellipsis;
     padding: 0 2.5rem;
+    font-size: 0.8rem;
   }
 
   .mainBoard .characterPic {
     display: none;
+  }
+
+  .soberContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .soberContainer h3 {
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
   }
 
   .place {

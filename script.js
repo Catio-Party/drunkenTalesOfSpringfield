@@ -308,7 +308,8 @@ app.soberCheck = (totalChecks = 0) => {
     const finalCheck = async () => {
         await addSober();
         app.sober >= 100
-            ? (app.clearAll(), app.clearQuotes(), app.scoreChecker(), app.gamesPlayed++, app.mainBoard.style.display = "none", app.gameOver.style.display = "flex")
+            ? (app.clearAll(), app.clearQuotes(), app.setScores(), app.gamesPlayed++, 
+            app.mainBoard.style.display = 'none', app.gameOver.style.display = 'flex')
             : (totalChecks++, app.soberCheck(totalChecks))
     }
     finalCheck()
@@ -316,29 +317,60 @@ app.soberCheck = (totalChecks = 0) => {
 
 //Gameover Section
 
-app.gameOverButtons = (e) => {
-    e.target.classList.contains('retry')
-        ? (app.StartGame(), app.mainBoard.style.display = "flex", app.gameOver.style.display = "none")
-        : (app.gameOver.style.display = "none", app.loadingPage.style.display = "flex")
-}
- 
-app.scoreChecker = () => {
+app.setScores = () => {
     document.querySelector('.endCurrentScore').textContent = app.currentScore
-    if (app.currentScore > app.highScore) {
-        app.highScore = app.currentScore
-        document.querySelector('.endHighScore').textContent = app.highScore
-    }
+    app.currentScore > app.highScore
+    ? (app.highScore = app.currentScore, document.querySelector('.endHighScore').textContent = app.highScore)
+    : app.highScore = app.highScore
 }
 
+app.gameOverButtons = (e) => {
+    e.target.classList.contains('retry') 
+    ? (app.mainBoard.style.display = 'flex', app.gameOver.style.display = 'none', app.StartGame())
+    : (app.loadingPage.style.display = 'flex', app.gameOver.style.display = 'none');
+}
+
+//App.init
 app.init = () => {
     //Loading
     document.querySelectorAll('.characterButton').forEach(button => button.addEventListener('click', app.chooseCharacter))
     //Gameover
     document.querySelector('.retry').addEventListener('click', app.gameOverButtons)
     document.querySelector('.changeCharacter').addEventListener('click', app.gameOverButtons)
-
+    
     app.makeGrid()
     app.makeClick()
 }
 
 app.init()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// app.gameOverButtons = (e) => {
+//     e.target.classList.contains('retry')
+//         ? (app.StartGame(), app.mainBoard.style.display = "flex", app.gameOver.style.display = "none")
+//         : (app.gameOver.style.display = "none", app.loadingPage.style.display = "flex")
+// }
+ 
+// app.setScores = () => {
+//     document.querySelector('.endCurrentScore').textContent = app.currentScore
+//     if (app.currentScore > app.highScore) {
+//         app.highScore = app.currentScore
+//         document.querySelector('.endHighScore').textContent = app.highScore
+//     }
+// }
