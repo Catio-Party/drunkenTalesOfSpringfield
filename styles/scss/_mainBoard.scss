@@ -3,6 +3,7 @@
 .mainBoard {
     width: 100vw;
     height: 88vh;
+    min-width: 440px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -17,7 +18,7 @@
     border: 3px solid $primaryColor;
 }
 
-.mainBoard h1 {
+.mainBoard h2 {
     height: 8vh;
     // height: 10%;
     margin: 0;
@@ -39,6 +40,7 @@
 .characterProfile {
     width: 30%;
     font-size: 0.75rem;
+    padding: 0 0.1rem;
 }
 
 .soberContainer {
@@ -53,6 +55,7 @@
     // background-color: thistle;
         p {
             font-size: .75rem;
+            padding: 0 0.1rem;
         }
 }
 
@@ -101,6 +104,8 @@
     background-color: $primaryColor;
     font-size: 0.6rem;
     overflow: hidden;
+    line-height: 0.75rem;
+    padding: 0 0.35rem;
 }
 
 //GameBoard and Stylings Inside and Dynamic Changes by Game
@@ -121,11 +126,11 @@
     height: calc(67.5vh/ 10);
     width: calc(100%/10);
     // height: calc(100%/10);
-    border: 1px solid blue;
+    border: 0.05rem dotted blue;
 }
 
 .beer {
-    background-color: pink;
+    // background-color: pink;
     position: relative;
 }
 
@@ -141,7 +146,7 @@
 }
 
 .wine {
-    background-color: blue;
+    // background-color: blue;
     position: relative;
 }
 
@@ -157,7 +162,7 @@
 }
 
 .liquor {
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
     position: relative;
 }
 
@@ -174,13 +179,13 @@
 
 
 .bw {
-    background-color: violet;
+    // background-color: violet;
     position: relative;
 }
 
 .bw::before {
-    content: "🍺🍷";
-    font-size: 1.25rem;
+    content: "🍾";
+    font-size: 1.5rem;
     display: block;
     width: 100%;
     text-align: center;
@@ -190,13 +195,13 @@
 }
 
 .bl {
-    background-color: orange;
+    // background-color: orange;
     position: relative;
 }
 
 .bl::before {
-    content: "🍺🥃";
-    font-size: 1.25rem;
+    content: "🍶";
+    font-size: 1.5rem;
     display: block;
     width: 100%;
     text-align: center;
@@ -206,13 +211,13 @@
 }
 
 .wl {
-    background-color: plum;
+    // background-color: plum;
     position: relative;
 }
 
 .wl::before {
-    content: "🍷🥃";
-    font-size: 1.25rem;
+    content: "🍸";
+    font-size: 1.5rem;
     display: block;
     width: 100%;
     text-align: center;
@@ -222,12 +227,12 @@
 }
 
 .bwl {
-    background-color: violet;
+    // background-color: violet;
     position: relative;
 }
 
 .bwl::before {
-    content: "🎉";
+    content: "🤮";
     font-size: 2.5rem;
     display: block;
     width: 100%;

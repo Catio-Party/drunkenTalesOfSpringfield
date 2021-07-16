@@ -7,13 +7,16 @@
 
 html {
     font-size: 20px;
+}
+
+body {
     font-family: $baseFont;
     letter-spacing: .15rem;
     background-color: $accentColorA;
 }
 
 .wrapper {
-    max-width: 1020px;
+    max-width: 992px;
 }
 
 header, footer {

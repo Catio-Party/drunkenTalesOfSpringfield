@@ -252,13 +252,16 @@ template {
 
 html {
   font-size: 20px;
+}
+
+body {
   font-family: "Rock Salt", cursive;
   letter-spacing: 0.15rem;
   background-color: #92D4F7;
 }
 
 .wrapper {
-  max-width: 1020px;
+  max-width: 992px;
 }
 
 header, footer {
@@ -311,6 +314,7 @@ main {
   background-repeat: no-repeat;
   width: 100vw;
   height: 88vh;
+  min-width: 440px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -323,7 +327,7 @@ main {
 .loadingHeadings h2 {
   color: #fccf08;
   text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
-  padding: 1rem 0;
+  padding: 2rem 0 1rem 0;
 }
 
 .characterGallery {
@@ -367,6 +371,7 @@ main {
 .mainBoard {
   width: 100vw;
   height: 88vh;
+  min-width: 440px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -383,7 +388,7 @@ main {
   border: 3px solid #fccf08;
 }
 
-.mainBoard h1 {
+.mainBoard h2 {
   height: 8vh;
   margin: 0;
   padding-top: 0.5rem;
@@ -408,6 +413,7 @@ main {
 .characterProfile {
   width: 30%;
   font-size: 0.75rem;
+  padding: 0 0.1rem;
 }
 
 .soberContainer {
@@ -421,6 +427,7 @@ main {
 }
 .scoreContainer p {
   font-size: 0.75rem;
+  padding: 0 0.1rem;
 }
 
 .scoreContainer p:nth-child(2) {
@@ -484,6 +491,8 @@ main {
   background-color: #fccf08;
   font-size: 0.6rem;
   overflow: hidden;
+  line-height: 0.75rem;
+  padding: 0 0.35rem;
 }
 
 .gameGrid {
@@ -503,11 +512,10 @@ main {
 .place {
   height: calc(67.5vh/ 10);
   width: calc(100%/10);
-  border: 1px solid blue;
+  border: 0.05rem dotted blue;
 }
 
 .beer {
-  background-color: pink;
   position: relative;
 }
 
@@ -523,7 +531,6 @@ main {
 }
 
 .wine {
-  background-color: blue;
   position: relative;
 }
 
@@ -539,7 +546,6 @@ main {
 }
 
 .liquor {
-  background-color: yellowgreen;
   position: relative;
 }
 
@@ -555,13 +561,12 @@ main {
 }
 
 .bw {
-  background-color: violet;
   position: relative;
 }
 
 .bw::before {
-  content: "🍺🍷";
-  font-size: 1.25rem;
+  content: "🍾";
+  font-size: 1.5rem;
   display: block;
   width: 100%;
   text-align: center;
@@ -571,13 +576,12 @@ main {
 }
 
 .bl {
-  background-color: orange;
   position: relative;
 }
 
 .bl::before {
-  content: "🍺🥃";
-  font-size: 1.25rem;
+  content: "🍶";
+  font-size: 1.5rem;
   display: block;
   width: 100%;
   text-align: center;
@@ -587,13 +591,12 @@ main {
 }
 
 .wl {
-  background-color: plum;
   position: relative;
 }
 
 .wl::before {
-  content: "🍷🥃";
-  font-size: 1.25rem;
+  content: "🍸";
+  font-size: 1.5rem;
   display: block;
   width: 100%;
   text-align: center;
@@ -603,12 +606,11 @@ main {
 }
 
 .bwl {
-  background-color: violet;
   position: relative;
 }
 
 .bwl::before {
-  content: "🎉";
+  content: "🤮";
   font-size: 2.5rem;
   display: block;
   width: 100%;
@@ -633,6 +635,7 @@ main {
 .gameOver {
   width: 100vw;
   height: 88vh;
+  min-width: 440px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -643,29 +646,59 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #92D4F7;
 }
 
 .gameOver .wrapper {
   height: 100%;
   width: 90%;
+  background-color: #803796;
 }
 
 .gameOver h2 {
   font-size: 2.5rem;
+  height: 29vh;
   color: #2E60D2;
   background-color: #EB559C;
-  padding: 1.2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1rem;
 }
 
 .gameOver h3 {
   font-size: 1.8rem;
+  height: 15vh;
   background-color: #fccf08;
-  padding: 1.2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 29vh;
   background-color: #803796;
-  padding: 3rem 0 2rem 0;
 }
 .buttons button {
   font-family: "Rock Salt", cursive;
@@ -677,6 +710,73 @@ main {
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  .loadingHeadings h2 {
+    padding-top: 3rem;
+  }
+}
+@media (max-width: 610px) {
+  html {
+    font-size: 14px;
+  }
+
+  .mainBoard .botContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+
+  .mainBoard .characterCredentials {
+    width: 100%;
+    height: 30%;
+  }
+
+  .mainBoard .gameGrid {
+    width: 100%;
+    height: 70%;
+  }
+
+  .mainBoard .characterQuote {
+    width: 100%;
+    height: 100%;
+    text-overflow: ellipsis;
+    padding: 0 2.5rem;
+  }
+
+  .mainBoard .characterPic {
+    display: none;
+  }
+
+  .place {
+    width: calc((98.5vw * .9)/ 10);
+    height: calc(100%/10);
+    border: 1px solid blue;
+  }
+}
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+
+  .loading {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .loadingHeadings h2:first-child {
+    padding-bottom: 5.5rem;
+  }
+
+  .loading .characterGallery {
+    margin-bottom: 9rem;
+  }
+}
 .gameOver,
 .mainBoard {
   display: none;
