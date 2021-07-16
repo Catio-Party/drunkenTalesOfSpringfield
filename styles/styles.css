@@ -252,7 +252,13 @@ template {
 
 html {
   font-size: 20px;
-  background-color: tomato;
+  font-family: "Rock Salt", cursive;
+  letter-spacing: 0.15rem;
+  background-color: #92D4F7;
+}
+
+.wrapper {
+  max-width: 1140px;
 }
 
 header, footer {
@@ -266,21 +272,26 @@ header, footer {
 }
 
 header {
-  height: 7.5vh;
+  height: 7vh;
+  margin: 1rem 0;
 }
 
 footer {
-  height: 4.5vh;
-  background-color: pink;
+  height: 4vh;
+  background-color: #92D4F7;
+  font-size: 0.8rem;
+  padding-top: 0.5rem;
 }
 
 footer .wrapper {
-  background-color: red;
+  background-color: #92D4F7;
 }
 
 header h1 {
   margin: 0;
-  background-color: wheat;
+  background-color: #92D4F7;
+  color: #fccf08;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
   height: 100%;
 }
 
@@ -292,12 +303,21 @@ footer .wrapper {
 footer p {
   margin: 0;
 }
+footer p a {
+  font-family: sans-serif, regular;
+  font-size: 1rem;
+  letter-spacing: 0rem;
+}
 
 main {
   background-color: white;
 }
 
 .loading {
+  background-image: url(../assets/wallpaperflare.com_wallpaper.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 88vh;
   display: -webkit-box;
@@ -310,12 +330,14 @@ main {
 }
 
 .loadingHeadings h2 {
+  color: #fccf08;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
   padding: 1rem 0;
 }
 
 .characterGallery {
-  border: 15px solid lightpink;
-  border-radius: 10px;
+  border: 0.5rem solid #FAC5CB;
+  border-radius: 1rem;
   background-color: white;
   width: 100%;
 }
@@ -361,17 +383,20 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  background-color: #92D4F7;
 }
 
 .mainBoard .wrapper {
   width: 90%;
-  background-color: purple;
+  background-color: #8678B8;
   height: 100%;
+  border: 3px solid #fccf08;
 }
 
 .mainBoard h1 {
-  height: 6vh;
+  height: 10%;
   margin: 0;
+  padding-top: 0.5rem;
   font-size: 1.8rem;
 }
 
@@ -383,29 +408,42 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 11.5vh;
-  background-color: green;
-  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 15%;
+  background-color: pink;
 }
 
 .characterProfile {
   width: 25%;
-  background-color: pink;
 }
 
 .soberContainer {
-  width: 60%;
-  background-color: gray;
+  width: 58%;
+  height: 100%;
+  padding-top: 0.5rem;
 }
 
 .scoreContainer {
+<<<<<<< HEAD
   width: 15%;
   background-color: thistle;
   font-size: 0.8rem;
+=======
+  width: 17%;
+}
+.scoreContainer p {
+  font-size: 0.73rem;
+}
+
+.scoreContainer p:nth-child(2) {
+  margin-bottom: 0.5rem;
+>>>>>>> 0345d2fca940785beebda4019cb29d729db3e503
 }
 
 .botContainer {
-  height: 70.5vh;
+  height: 75%;
   width: 100%;
   background-color: turquoise;
   display: -webkit-box;
@@ -429,13 +467,31 @@ main {
 }
 
 .characterPic {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 65%;
-  background-color: green;
+  background-color: white;
 }
 
 .characterQuote {
   height: 35%;
-  background-color: yellow;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fccf08;
 }
 
 .gameGrid {
@@ -579,25 +635,38 @@ main {
 .gameOver .wrapper {
   height: 100%;
   width: 90%;
-  background-color: yellow;
 }
 
 .gameOver h2 {
   font-size: 2.5rem;
+<<<<<<< HEAD
   background-color: pink;
   padding: 1.5rem 0 1.5rem 0;
+=======
+  color: #2E60D2;
+  background-color: #EB559C;
+  padding: 1.2rem 0;
+>>>>>>> 0345d2fca940785beebda4019cb29d729db3e503
 }
 
 .gameOver h3 {
   font-size: 1.8rem;
-  color: blue;
-  background-color: red;
-  padding: 1.5rem 0;
+  background-color: #fccf08;
+  padding: 1.2rem 0;
 }
 
 .buttons {
-  background-color: purple;
+  background-color: #803796;
   padding: 3rem 0 2rem 0;
+}
+.buttons button {
+  font-family: "Rock Salt", cursive;
+  background-color: #EB559C;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
 }
 
 .gameOver,

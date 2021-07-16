@@ -12,23 +12,31 @@
 .gameOver .wrapper {
     height: 100%;
     width: 90%;
-    background-color: yellow;
 }
 
 .gameOver h2{
     font-size: 2.5rem;
-    background-color: pink;
-    padding: 1.5rem 0 1.5rem 0;
+    color: $accentColorE;
+    background-color: $accentColorH;
+    padding: 1.2rem 0;
 }
 
 .gameOver h3 {
     font-size: 1.8rem;
-    color: blue;
-    background-color: red;
-    padding: 1.5rem 0;
+    background-color: $primaryColor;
+    padding: 1.2rem 0;
 }
 
 .buttons {
-    background-color: purple;
+    background-color: $accentColorG;
     padding: 3rem 0 2rem 0;
+        button {
+            font-family: $baseFont;
+            background-color: $accentColorH;
+            padding: .5rem;
+            margin: 0 .5rem;
+            border-radius: .5rem;
+            letter-spacing: .1rem;
+            cursor: pointer;
+        }
 }

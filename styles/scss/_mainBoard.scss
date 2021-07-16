@@ -6,17 +6,22 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    background-color: $accentColorA;
 }
 
 .mainBoard .wrapper {
     width: 90%;
-    background-color: purple;
+    background-color: $accentColorD;
     height: 100%;
- }
+
+    border: 3px solid $primaryColor;
+}
 
 .mainBoard h1 {
-    height: 6vh;
+    // height: 6vh;
+    height: 10%;
     margin: 0;
+    padding-top: .5rem;
     font-size: 1.8rem;
 }
 
@@ -25,31 +30,46 @@
 .topContainer {
     display: flex;
     flex-direction: row;
-    height: 11.5vh;
-    background-color: green;
-    text-align: center
+    align-items: center;
+    // height: 11.5vh;
+    height: 15%;
+    background-color: pink;
 }
 
 .characterProfile {
     width: 25%;
-    background-color: pink;
 }
 
 .soberContainer {
-    width: 60%;
-    background-color: gray;
+    width: 58%;
+    height: 100%;
+    padding-top: .5rem;
+    // background-color: gray;
 } 
 
 .scoreContainer {
+<<<<<<< HEAD
     width: 15%;
     background-color: thistle;
     font-size: 0.8rem;
+=======
+    width: 17%;
+    // background-color: thistle;
+        p {
+            font-size: .73rem;
+        }
+}
+
+.scoreContainer p:nth-child(2) {
+    margin-bottom: .5rem;
+>>>>>>> 0345d2fca940785beebda4019cb29d729db3e503
 }
 
 //Bottom 
 
 .botContainer {
-    height: 70.5vh;
+    // height: 70.5vh;
+    height: 75%;
     width: 100%;
     background-color: turquoise;
     display: flex;
@@ -63,13 +83,19 @@
 }
 
 .characterPic {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     height: 65%;
-    background-color: green
+    background-color: $secondaryColor;
 }
 
 .characterQuote {
     height: 35%;
-    background-color: yellow;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: $primaryColor;
 }
 
 //GameBoard and Stylings Inside and Dynamic Changes by Game
@@ -190,7 +216,7 @@
     background-color: grey;
     border: 0.15rem solid black;
 }
-  
+
 .soberLevel {
     width: 25%;
     height: 1.5rem;
