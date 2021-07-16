@@ -1,6 +1,10 @@
 //Landing Section
 
 .loading {
+    background-image: url(../assets/wallpaperflare.com_wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100vw;
     height: 88vh;
     display: flex;
@@ -8,21 +12,16 @@
     text-align: center;
 }
 
-
-// .titles {
-//     text-align: center;
-// }
-
 .loadingHeadings h2 {
-    // text-align: center;
+    color: $primaryColor;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
     padding: 1rem 0;
 }
 
 .characterGallery {
-    border: 15px solid lightpink;
-    border-radius: 10px;
+    border: .5rem solid $accentColorC;
+    border-radius: 1rem;
     background-color: white;
-    // margin: 0 80px;
     width: 100%;
 }
 
@@ -34,7 +33,6 @@
         li {
             list-style-type: none;
             padding: 0 2%;
-            // need to get these responsive
         }
         img {
             width: 100%

@@ -7,7 +7,13 @@
 
 html {
     font-size: 20px;
-    background-color: tomato;
+    font-family: $baseFont;
+    letter-spacing: .15rem;
+    background-color: $accentColorA;
+}
+
+.wrapper {
+    max-width: 1140px;
 }
 
 header, footer {
@@ -17,22 +23,27 @@ header, footer {
 }
 
 header {
-    height: 7.5vh;
+    height: 7vh;
+    margin: 1rem 0;
 }
 
 footer {
-    height: 4.5vh;
-    background-color: pink;
+    height: 4vh;
+    background-color: $accentColorA;
+    font-size: .8rem;
+    padding-top: .5rem;
 }
 
 footer .wrapper {
-    background-color: red;
+    background-color: $accentColorA;
 }
 
 
 header h1 {
     margin: 0;
-    background-color: wheat;
+    background-color: $accentColorA;
+    color: $primaryColor;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
     height: 100%;
 }
 
@@ -43,6 +54,11 @@ footer .wrapper {
 
 footer p {
     margin: 0;
+        a {
+            font-family: sans-serif, regular;
+            font-size: 1rem;
+            letter-spacing: 0rem;
+        }
 }
 
 main {

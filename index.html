@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simpsons etc</title>
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -29,23 +32,23 @@
                     <!-- need to get images without backgrounds! Also, I think that if the imgs are to be clickable, they should be a button -->
                     <ul class="characterFlex">
                         <li>
-                            <button id="homer" class="characterButton">
-                                <img class="homer" src="./assets/homer.jpg" alt="" >
+                            <button class="characterButton">
+                                <img id="homer" class="homer" src="./assets/homer.jpg" alt="">
                             </button>
                         </li>
                         <li>
-                            <button id="fry" class="characterButton">
-                                <img class="fry" src="./assets/fry.jpg" alt="">
+                            <button class="characterButton">
+                                <img id="fry" class="fry" src="./assets/fry.jpg" alt="">
                             </button>
                         </li>
                         <li>
-                            <button id="darth" class="characterButton">
-                                <img class="darth" src="./assets/darth.jpg" alt="">
+                            <button class="characterButton">
+                                <img id="darth" class="darth" src="./assets/darth.jpg" alt="">
                             </button>
                         </li>
                         <li>
-                            <button id="han" class="characterButton">
-                                <img class="han" src="./assets/han.jpg" alt="">
+                            <button class="characterButton">
+                                <img id="han" class="han" src="./assets/han.jpg" alt="">
                             </button>
                         </li>
                     </ul>
@@ -60,14 +63,19 @@
             <div class="wrapper">
                 <h1>The Drunken Tales of Springfield</h1>
                 <div class="topContainer">
-                    <div class="characterProfile">Character name n possibly profile</div>
+                    <div class="characterProfile">Character name n profile</div>
                     <div class="soberContainer">
                         <h3>Sobriety Bar</h3>
                         <div class="soberBar">
                             <div class="soberLevel"></div>
                         </div>
                     </div>
-                    <div class="scoreContainer">High Score and current score</div>
+                    <div class="scoreContainer">
+                        <p>High Score:</p>
+                        <p class="highScore">0</p>
+                        <p>Current Score:</p>
+                        <p class="currentScore">0</p>
+                    </div>
                 </div>
                 <div class="botContainer">
                     <div class="characterCredentials">
@@ -83,12 +91,11 @@
             <div class="wrapper">
                 <h2>You're Sober!</h2>
                 <h2>Time to go Home</h2>
-                <h3>Current Score</h3>
-                <h3>High Score</h3>
+                <h3>Current Score: <span class=“endCurrentScore”>0</span></h3>
+                <h3>High Score: <span class=“endHigScore”>0</span></h3>
                 <div class="buttons">
                     <button class="retry">Retry</button>
                     <button class="changeCharacter">Try with a new character!</button>
-
                 </div>
             </div>
         </section>
@@ -100,8 +107,9 @@
             <p>Created at <a href="https://junocollege.com/">Juno College</a></p>
         </div>
     </footer>
-    ​
-    ​<script src="landingPageApp.js"></script>
+
+    <script src="app.js"></script>
+
 </body>
 
 </html>
