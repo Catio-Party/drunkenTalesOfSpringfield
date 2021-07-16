@@ -6,8 +6,9 @@
 @import 'mainBoard';
 @import 'gameOver';
 
-.gameOver,
-.mainBoard {
+// .gameOver,
+.mainBoard,
+.loading {
     display: none;
 }
 
