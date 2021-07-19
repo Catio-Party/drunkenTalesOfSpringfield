@@ -16,21 +16,37 @@ app.chooseCharacter = (e) => {
 }
 
 //API Function
-app.apiCall = async (tvShow, character) => {
+// app.apiCall = async (tvShow, character) => {
+//     const getQuotes = async () => {
+//         app.url.searchParams.set('show', tvShow)
+//         const res = await fetch(app.url)
+//         const data = await res.json()
+//         return data
+//     }
+//     await getQuotes(character)
+//         .then((res) => {
+//             app.characterQuotes = res.db.filter(x => x.source == character).map(y => y.quote).filter(z => z.split(' ').length < 27)
+//         })
+//         .catch(() => {
+//             app.characterQuotes.push("Drinking is fun but practice moderation.")
+//         })
+//     return Promise.resolve()
+// }
+
+//New Api Call and Display Characteristics function due to bad API
+app.apiCall = async () => {
     const getQuotes = async () => {
-        app.url.searchParams.set('show', tvShow)
-        const res = await fetch(app.url)
-        const data = await res.json()
+        const response = await fetch(app.url)
+        const data = await response.json()
         return data
     }
-    await getQuotes(character)
-        .then((res) => {
-            app.characterQuotes = res.db.filter(x => x.source == character).map(y => y.quote).filter(z => z.split(' ').length < 27)
+    await getQuotes()
+        .then((data) => {
+            app.characterQuotes = data.results.filter(x => x.content.split(' ').length <= 25).map(y => [y.content, y.author])
         })
         .catch(() => {
             app.characterQuotes.push("Drinking is fun but practice moderation.")
         })
-    return Promise.resolve()
 }
 
 app.displayCharacteristics = async () => {
@@ -38,15 +54,34 @@ app.displayCharacteristics = async () => {
     document.querySelector('.characterPic').innerHTML = `<img src="./assets/${app.characterParams[1].split(' ')[0].toLowerCase()}.jpg" alt="${app.characterParams[1]}">`
     document.querySelector('.characterProfile').textContent = `${app.characterParams[1]}: ${app.characterParams[2]}`
     //Api Call to get Quotes and set it to display and cycle in Quotes Container.
-    await app.apiCall(...app.characterParams)
+    await app.apiCall()
     app.changeQuote = () => {
         let randomQuoteNum = Math.floor(Math.random() * app.characterQuotes.length)
-        document.querySelector('.characterQuote').textContent = app.characterQuotes[randomQuoteNum]
+        app.characterQuotes.length == 1
+        ? document.querySelector('.characterQuote').textContent = app.characterQuotes[0]
+        : document.querySelector('.characterQuote').textContent = app.characterQuotes[randomQuoteNum][0] + " - " + app.characterQuotes[randomQuoteNum][1] 
+
     }
     app.changeQuote()
     app.quoteInterval = () => endQuote = setInterval(app.changeQuote, 7500)
     app.quoteInterval()
 }
+
+
+// app.displayCharacteristics = async () => {
+//     //Change Character Pic and Profile  according to user selection
+//     document.querySelector('.characterPic').innerHTML = `<img src="./assets/${app.characterParams[1].split(' ')[0].toLowerCase()}.jpg" alt="${app.characterParams[1]}">`
+//     document.querySelector('.characterProfile').textContent = `${app.characterParams[1]}: ${app.characterParams[2]}`
+//     //Api Call to get Quotes and set it to display and cycle in Quotes Container.
+//     await app.apiCall(...app.characterParams)
+//     app.changeQuote = () => {
+//         let randomQuoteNum = Math.floor(Math.random() * app.characterQuotes.length)
+//         document.querySelector('.characterQuote').textContent = app.characterQuotes[randomQuoteNum]
+//     }
+//     app.changeQuote()
+//     app.quoteInterval = () => endQuote = setInterval(app.changeQuote, 7500)
+//     app.quoteInterval()
+// }
 
 //Clear Quote Interval Function
 app.clearQuotes = () => clearInterval(endQuote)
@@ -327,9 +362,13 @@ app.init = () => {
 
     app.characterParams = []
     app.characterQuotes = []
-    app.url = new URL('http://api.chrisvalleskey.com/fillerama/get.php')
+    // app.url = new URL('http://api.chrisvalleskey.com/fillerama/get.php')
+    // app.url.search = new URLSearchParams({
+    //     format: 'json',
+    // })
+    app.url = new URL('https://api.quotable.io/quotes')
     app.url.search = new URLSearchParams({
-        format: 'json',
+        limit: 150,
     })
 
     app.alcoholClasses = ['beer', 'wine', 'liquor', 'bw', 'bl', 'wl', 'bwl']
