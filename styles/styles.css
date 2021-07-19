@@ -262,6 +262,7 @@ body {
 
 .wrapper {
   max-width: 992px;
+  min-width: 440px;
 }
 
 header, footer {
@@ -279,9 +280,19 @@ header, footer {
   font-size: 0.8rem;
 }
 
-header .wrapper,
-footer .wrapper {
-  width: 90%;
+header .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header .infoButton {
+  background-color: #92D4F7;
+  border: none;
+  margin-left: 0.5rem;
 }
 
 header p,
@@ -311,7 +322,6 @@ main {
   background-image: url(../assets/wallpaperflare.com_wallpaper.jpg);
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   width: 100vw;
   height: 88vh;
   min-width: 440px;
@@ -324,10 +334,16 @@ main {
   text-align: center;
 }
 
+.loadingHeadings h1,
 .loadingHeadings h2 {
   color: #fccf08;
   text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
   padding: 2rem 0 1rem 0;
+}
+
+.loadingHeadings h1 {
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 .characterGallery {
@@ -360,7 +376,6 @@ main {
 .characterButton {
   border: none;
   background-color: white;
-  padding: 0;
 }
 
 .characterButton:hover {
@@ -510,114 +525,74 @@ main {
 }
 
 .place {
-  height: calc(67.5vh/ 10);
-  width: calc(100%/10);
+  height: calc(99.5%/ 10);
+  width: calc((100%)/10);
+  min-width: calc((430px)/10);
   border: 0.05rem dotted blue;
 }
 
-.beer {
+.beer,
+.wine,
+.liquor,
+.bw,
+.bl,
+.wl .bwl {
   position: relative;
+}
+
+.beer::before,
+.wine::before,
+.liquor::before,
+.bw::before,
+.bl::before,
+.wl::before .bwl::before {
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 8.5%;
+  left: 5%;
+}
+
+.beer::before,
+.wine::before,
+.liquor::before {
+  font-size: 1.5rem;
+}
+
+.bw::before,
+.bl::before,
+.wl::before {
+  font-size: 1.75rem;
 }
 
 .beer::before {
   content: "🍺";
-  font-size: 1.5rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  top: 8.5%;
-  left: 5%;
-}
-
-.wine {
-  position: relative;
 }
 
 .wine::before {
   content: "🍷";
-  font-size: 1.5rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  top: 8.5%;
-  left: 5%;
-}
-
-.liquor {
-  position: relative;
 }
 
 .liquor::before {
   content: "🥃";
-  font-size: 1.5rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  top: 8.5%;
-  left: 5%;
-}
-
-.bw {
-  position: relative;
 }
 
 .bw::before {
   content: "🍾";
-  font-size: 1.5rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  top: 8.5%;
-  left: 5%;
-}
-
-.bl {
-  position: relative;
 }
 
 .bl::before {
   content: "🍶";
-  font-size: 1.5rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  top: 8.5%;
-  left: 5%;
-}
-
-.wl {
-  position: relative;
 }
 
 .wl::before {
   content: "🍸";
-  font-size: 1.5rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  top: 8.5%;
-  left: 5%;
-}
-
-.bwl {
-  position: relative;
 }
 
 .bwl::before {
   content: "🤮";
   font-size: 2.5rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  top: 8.5%;
-  left: 5%;
 }
 
 .soberBar {
@@ -643,9 +618,6 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: #92D4F7;
 }
 
@@ -659,17 +631,15 @@ main {
   font-size: 2.5rem;
   height: 29vh;
   color: #2E60D2;
-  background-color: #EB559C;
+  background-color: #a59ea1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 0 1rem;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 
 .gameOver h3 {
@@ -702,12 +672,84 @@ main {
 }
 .buttons button {
   font-family: "Rock Salt", cursive;
-  background-color: #EB559C;
+  background-color: #a59ea1;
   padding: 0.5rem;
   margin: 0 0.5rem;
   border-radius: 0.5rem;
   letter-spacing: 0.1rem;
   cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  width: 80vw;
+  min-width: 220px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+}
+
+.modal h2 {
+  margin: 0.5rem;
+  border-bottom: 0.1rem solid black;
+}
+
+.modal li {
+  list-style-type: none;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  padding: rem;
+}
+
+header i {
+  background-color: #92D4F7;
+  color: #FAC5CB;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  font-size: 1rem;
+}
+
+.modalButton {
+  text-decoration: none;
+  font-size: 0.8rem;
+  background-color: #92D4F7;
+  padding: 0.5rem 0.5rem 0 1.5rem;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modalButton:hover,
+.modalButton:focus {
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  padding-right: 0.75rem;
+}
+
+.modalContainer {
+  background-color: #8678B8;
+  margin: 15% auto;
+  padding: 1rem;
+  border: 0.15rem solid black;
+  width: 80%;
+}
+
+.closeModal {
+  color: black;
+  float: right;
+  font-size: 2rem;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+  color: #FAC5CB;
+  cursor: pointer;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 
 @media (max-width: 768px) {
@@ -719,11 +761,7 @@ main {
     padding-top: 3rem;
   }
 }
-@media (max-width: 610px) {
-  html {
-    font-size: 14px;
-  }
-
+@media (max-width: 690px) {
   .mainBoard .botContainer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
@@ -777,7 +815,7 @@ main {
   .place {
     width: calc((98.5vw * .9)/ 10);
     height: calc(100%/10);
-    border: 1px solid blue;
+    border: 1px dotted blue;
   }
 }
 @media (max-width: 480px) {

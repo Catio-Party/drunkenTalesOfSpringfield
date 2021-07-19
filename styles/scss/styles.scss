@@ -5,8 +5,10 @@
 @import 'landingPage';
 @import 'mainBoard';
 @import 'gameOver';
+@import 'modal';
 @import 'mediaQueries';
 
+//Start App
 .gameOver,
 .mainBoard {
     display: none;

@@ -5,24 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simpsons etc</title>
+    <title>Simpsons Game</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
-
 <body>
     <header>
         <div class="wrapper">
             <p>a collaboration by <a href="https://github.com/Catio-Party">Catio Party</a></p>
+            <button class="modalButton" aria-label="Information"><i class="fas fa-info-circle"></i>
+            </button>
         </div>
     </header>
     <main>
         <section class="loading">
             <div class="wrapper">
                 <div class="loadingHeadings">
-                    <h2>Drunken Tales of Springfield</h2>
+                    <h1>Drunken Tales of Springfield</h1>
                     <h2>Choose Your Player</h2>
                 </div>
                 <div class="characterGallery">
@@ -89,8 +92,19 @@
                 </div>
             </div>
         </section>
+        <div id="modal" class="modal">
+            <div class="modalContainer">
+              <span class="closeModal">&times;</span>
+              <h2>Drinking Regulations</h2>
+              <ul>
+                  <li>1. Drink alochol to stay drunk and avoid going home</li>
+                  <li>2. Liquor > Wine > Beer</li>
+                  <li>3. Extra inebriation for drinking multiple at once</li>
+                  <li>4. Have fun!</li>
+              </ul>
+            </div>
+          </div>
     </main>
-
     <footer>
         <div class="wrapper">
             <p>Created at <a href="https://junocollege.com/">Juno College</a></p>
