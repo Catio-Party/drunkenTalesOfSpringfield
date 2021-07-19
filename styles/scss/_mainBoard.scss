@@ -1,5 +1,4 @@
 //Main GameBoard
-
 .mainBoard {
     width: 100vw;
     height: 88vh;
@@ -13,27 +12,22 @@
 .mainBoard .wrapper {
     width: 90%;
     background-color: $accentColorD;
-    // height: 100%;
-
     border: 3px solid $primaryColor;
 }
 
 .mainBoard h2 {
     height: 8vh;
-    // height: 10%;
     margin: 0;
     padding-top: .5rem;
     font-size: 1.25rem;
 }
 
 //Top
-
 .topContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 11.5vh;
-    // height: 11.5%;
     background-color: pink;
 }
 
@@ -47,12 +41,10 @@
     width: 53%;
     height: 100%;
     padding-top: .5rem;
-    // background-color: gray;
 } 
 
 .scoreContainer {
     width: 17%;
-    // background-color: thistle;
         p {
             font-size: .75rem;
             padding: 0 0.2rem;
@@ -64,11 +56,8 @@
 }
 
 //Bottom 
-
 .botContainer {
     height: 67.5vh;
-    
-    // width: 100%;
     background-color: turquoise;
     display: flex;
     flex-direction: row;
@@ -85,10 +74,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // width: 50%
     height: 50%;
     background-color: $secondaryColor;
-
 }
 
 .characterPic img {
@@ -109,34 +96,38 @@
 }
 
 //GameBoard and Stylings Inside and Dynamic Changes by Game
-
 .gameGrid {
-    // width: calc((75vw * .9));
-    // border: 0.1rem solid black;
     width: 70%;
     height: 100%;
     display: flex; 
     flex-direction: row;
     flex-wrap: wrap;
-    // margin: 0 auto;
 }
 
 .place {
-    // width: calc(((74.99vw * .9) - 0.15rem)/ 10);
-    height: calc(67.5vh/ 10);
-    width: calc(100%/10);
-    // height: calc(100%/10);
+    height: calc(99.5%/ 10);
+    width: calc((100%)/10);
+    min-width: calc((430px)/10);
     border: 0.05rem dotted blue;
 }
 
-.beer {
-    // background-color: pink;
+.beer,
+.wine,
+.liquor,
+.bw,
+.bl,
+.wl
+.bwl {
     position: relative;
 }
 
-.beer::before {
-    content: "🍺";
-    font-size: 1.5rem;
+.beer::before,
+.wine::before,
+.liquor::before,
+.bw::before,
+.bl::before,
+.wl::before
+.bwl::before {
     display: block;
     width: 100%;
     text-align: center;
@@ -145,101 +136,46 @@
     left: 5%;
 }
 
-.wine {
-    // background-color: blue;
-    position: relative;
+.beer::before,
+.wine::before,
+.liquor::before {
+    font-size: 1.5rem;
+}
+
+.bw::before,
+.bl::before,
+.wl::before {
+    font-size: 1.75rem;
+}
+
+
+.beer::before {
+    content: "🍺";
 }
 
 .wine::before {
     content: "🍷";
-    font-size: 1.5rem;
-    display: block;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: 8.5%;
-    left: 5%;
-}
-
-.liquor {
-    // background-color: yellowgreen;
-    position: relative;
 }
 
 .liquor::before {
     content: "🥃";
-    font-size: 1.5rem;
-    display: block;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: 8.5%;
-    left: 5%;
-}
-
-
-.bw {
-    // background-color: violet;
-    position: relative;
 }
 
 .bw::before {
     content: "🍾";
-    font-size: 1.5rem;
-    display: block;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: 8.5%;
-    left: 5%;
-}
-
-.bl {
-    // background-color: orange;
-    position: relative;
 }
 
 .bl::before {
     content: "🍶";
-    font-size: 1.5rem;
-    display: block;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: 8.5%;
-    left: 5%;
-}
-
-.wl {
-    // background-color: plum;
-    position: relative;
 }
 
 .wl::before {
     content: "🍸";
-    font-size: 1.5rem;
-    display: block;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: 8.5%;
-    left: 5%;
-}
-
-.bwl {
-    // background-color: violet;
-    position: relative;
 }
 
 .bwl::before {
     content: "🤮";
     font-size: 2.5rem;
-    display: block;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: 8.5%;
-    left: 5%;
 }
 
 .soberBar {

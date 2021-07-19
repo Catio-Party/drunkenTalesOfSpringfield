@@ -1,0 +1,71 @@
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 999;
+    width: 80vw;
+    min-width: 220px; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.modal h2 {
+    margin: 0.5rem;
+    border-bottom: 0.1rem solid black;
+}
+
+.modal li {
+    list-style-type: none;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    padding: rem;
+}
+
+header i {
+    background-color: $accentColorA;
+    color: $accentColorC;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    font-size: 1rem;
+}
+
+.modalButton {
+    text-decoration: none;
+    font-size: 0.8rem;
+    background-color: $accentColorA;
+    padding: 0.5rem 0.5rem 0 1.5rem;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.modalButton:hover,
+.modalButton:focus {
+    cursor: pointer;
+    transform: scale(1.2);
+    padding-right: 0.75rem;
+  }
+  
+.modalContainer {
+    background-color: $accentColorD;
+    margin: 15% auto;
+    padding: 1rem;
+    border: 0.15rem solid black;
+    width: 80%;
+}
+
+.closeModal {
+    color: black;
+    float: right;
+    font-size: 2rem;
+}
+  
+.closeModal:hover,
+.closeModal:focus {
+    color: $accentColorC;
+    cursor: pointer;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+

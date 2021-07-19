@@ -1,5 +1,4 @@
 //Header Footer and General Styles
-
 * { 
     margin: 0; 
     padding: 0;
@@ -17,6 +16,7 @@ body {
 
 .wrapper {
     max-width: 992px;
+    min-width: 440px;
 }
 
 header, footer {
@@ -29,34 +29,15 @@ header, footer {
     font-size: .8rem;
 }
 
-// header {
-//     height: 5.5vh;
-//     font-size: .8rem;
+header .wrapper {
+    display: flex;
+    justify-content: center;
+}
 
-// }
-
-// footer {
-//     height: 5.5vh;
-//     background-color: $accentColorA;
-//     font-size: .8rem;
-// }
-
-// footer .wrapper {
-//     background-color: $accentColorA;
-// }
-
-
-// header h1 {
-//     margin: 0;
-//     background-color: $accentColorA;
-//     color: $primaryColor;
-//     text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
-//     height: 100%;
-// }
-
-header .wrapper,
-footer .wrapper {
-    width: 90%
+header .infoButton {
+    background-color: $accentColorA;
+    border: none;
+    margin-left: 0.5rem;
 }
 
 header p,
