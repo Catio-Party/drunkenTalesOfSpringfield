@@ -328,7 +328,7 @@ app.init = () => {
     app.characterParams = []
     app.characterQuotes = []
     // app.url = new URL("http://proxy.hackeryou.com")
-    app.url = 'https://api.chrisvalleskey.com/fillerama/get.php'
+    app.url = 'http://api.chrisvalleskey.com/fillerama/get.php'
     app.url.search = new URLSearchParams({
         // reqUrl: app.requestedURL,
         format: 'json',
