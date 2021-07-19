@@ -35,7 +35,7 @@ app.apiCall = async (tvShow, character) => {
 
 app.displayCharacteristics = async () => {
     //Change Character Pic and Profile  according to user selection
-    document.querySelector('.characterPic').innerHTML = `<img src="./assets/${app.characterParams[1].split(' ')[0]}.jpg" alt="">`
+    document.querySelector('.characterPic').innerHTML = `<img src="./assets/${app.characterParams[1].split(' ')[0].toLowerCase()}.jpg" alt="${app.characterParams[1]}">`
     document.querySelector('.characterProfile').textContent = `${app.characterParams[1]}: ${app.characterParams[2]}`
     //Api Call to get Quotes and set it to display and cycle in Quotes Container.
     await app.apiCall(...app.characterParams)
