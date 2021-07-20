@@ -18,7 +18,7 @@ app.chooseCharacter = (e) => {
 //API Function
 app.apiCall = async (tvShow, character) => {
     const getQuotes = async () => {
-        app.url.searchParams.set('show', tvShow)
+        app.url.searchParams.set('params[show]', tvShow)
         const res = await fetch(app.url)
         const data = await res.json()
         return data
@@ -327,10 +327,13 @@ app.init = () => {
 
     app.characterParams = []
     app.characterQuotes = []
-    app.url = new URL('http://api.chrisvalleskey.com/fillerama/get.php')
+    app.requestedURL = "http://api.chrisvalleskey.com/fillerama/get.php?"
+    app.url = new URL("https://proxy.hackeryou.com")
     app.url.search = new URLSearchParams({
-        format: 'json',
+        reqUrl: app.requestedURL,
+        'params[format]': 'json',
     })
+
 
     app.alcoholClasses = ['beer', 'wine', 'liquor', 'bw', 'bl', 'wl', 'bwl']
     app.area = []
