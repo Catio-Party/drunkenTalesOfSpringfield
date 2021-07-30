@@ -187,9 +187,7 @@ app.clearAll = () => {
 
 //Control the Sobriety Bar
 app.moveSoberBar = () => {
-    app.sober > 100 
-    ? document.querySelector('.soberLevel').style.width = `100%`
-    : document.querySelector('.soberLevel').style.width = `${app.sober}%`
+    document.querySelector('.soberLevel').style.width = `${app.sober}%`
 }
 
 // Add events for clicking wine/hard liquor, and tracking scores
@@ -317,28 +315,6 @@ app.createModal = () => {
 }
 
 //Make a Carousel
-app.carousel = () => {
-app.playerPics = document.querySelectorAll('.carouselPic');
-app.carouselPosition = 0;
-app.totalPics = app.playerPics.length;
-
-app.hideAllSlides = () => {
-    for (let pic of app.playerPics) {
-        pic.classList.remove('carouselPicVisible');
-        pic.classList.add('carouselPicHidden');
-    }
-}
-
-app.moveToNextSlide = (e) => {
-    app.hideAllSlides()
-    e.target.id == 'carouselNext'
-    ? app.carouselPosition  == app.totalPics - 1 ? app.carouselPosition  = 0 : app.carouselPosition ++
-    : app.carouselPosition  === 0 ? app.carouselPosition  = app.totalPics - 1 : app.carouselPosition --
-    app.playerPics[app.carouselPosition ].classList.add("carouselPicVisible");
-}
-
-Array.from(document.querySelectorAll('.moveCarousel')).map(x => x.addEventListener('click', app.moveToNextSlide))
-}
 
 //App.init
 app.init = () => {
@@ -376,7 +352,6 @@ app.init = () => {
     app.makeGrid()
     app.makeClick()
     app.createModal()
-    app.carousel()
 }
 
 app.init()

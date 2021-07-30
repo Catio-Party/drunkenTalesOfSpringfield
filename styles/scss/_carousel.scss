@@ -1,0 +1,63 @@
+.carousel {
+    max-width: 600px;
+    position: relative;
+}
+
+.carousel .carouselPic,
+.carousel .carouselPicHidden {
+    display: none;
+}
+
+.carousel .carouselPicVisible {
+    display: block;
+    animation: fadeVisibility 0.5s;
+}
+
+.carousel .carouselPic button {
+    width: 100%;
+    // max-width: 600px;
+    height: auto;
+}
+
+.carouselButtons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carouselButtons button {
+    border-radius: 2.5rem;
+    background-color: $accentColorC;
+    color: $accentColorB;
+    border: 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.carousel .carouselButtons button#carouselPrevious {
+    margin-left: 1rem;
+}
+
+.carousel .carouselButtons button#carouselNext {
+    margin-right: 1rem;
+}
+
+@keyframes fadeVisibility {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.carousel .carouselPic img {
+    height: 37.5vh;
+}
