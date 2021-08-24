@@ -1,12 +1,8 @@
 # project2SimpsonsGame
 
 - First Collab by the all-star team of Beth Whalen and Wyn Bui
-- HTML/CSS/JavaScript game involving drinking and lovable 
+- HTML/CSS/JavaScript game involving drinking and lovable characters
+- Tests your reaction speed and timing.
 
-Branch - Stretch Goals
+- API call gets memorable quotes from each character!
 
-- Build Info Modal
-- Add extra styling to gameover section
-- Change styling of alcohol
-- fix some position issues with Mainboard smaller displays 
-- Refactor
